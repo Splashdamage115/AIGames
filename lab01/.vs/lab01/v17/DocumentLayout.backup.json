@@ -1,25 +1,40 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\",
+  "WorkspaceRootPath": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\RenderObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\math.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\math.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\RenderObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\SFML-3.0.0\\INCLUDE\\SFML\\WINDOW\\EVENT.INL||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7781C4FF-B02E-4F41-A5B0-C112940EF9D4}|lab01\\lab01.vcxproj|solutionrelative:lab01\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\SFML-3.0.0\\include\\SFML\\Window\\Event.inl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,11 +44,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "math.h",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\math.h",
+              "RelativeDocumentMoniker": "lab01\\math.h",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\math.h",
+              "RelativeToolTip": "lab01\\math.h",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-12T14:02:57.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "vector",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\vector",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\vector",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\vector",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\vector",
+              "ViewState": "AgIAAG8IAAAAAAAAAAAswH0IAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-12T13:31:24.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Player.cpp",
+              "RelativeDocumentMoniker": "lab01\\Player.cpp",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Player.cpp",
+              "RelativeToolTip": "lab01\\Player.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-12T12:51:29.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Player.h",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Player.h",
+              "RelativeDocumentMoniker": "lab01\\Player.h",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Player.h",
+              "RelativeToolTip": "lab01\\Player.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-12T12:47:40.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Event.inl",
               "DocumentMoniker": "C:\\SFML-3.0.0\\include\\SFML\\Window\\Event.inl",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\SFML-3.0.0\\include\\SFML\\Window\\Event.inl",
@@ -41,57 +108,56 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\SFML-3.0.0\\include\\SFML\\Window\\Event.inl",
               "ViewState": "AgIAABgAAAAAAAAAAAAWwCwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-09-12T11:42:55.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-12T11:42:55.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Game.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\Game.h",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Game.h",
               "RelativeDocumentMoniker": "lab01\\Game.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\Game.h",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Game.h",
               "RelativeToolTip": "lab01\\Game.h",
-              "ViewState": "AgIAABkAAAAAAAAAAAAswCUAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvxwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-09-12T11:26:36.857Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RenderObject.cpp",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.cpp",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.cpp",
               "RelativeDocumentMoniker": "lab01\\RenderObject.cpp",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.cpp",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.cpp",
               "RelativeToolTip": "lab01\\RenderObject.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-09-12T11:21:16.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "RenderObject.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.h",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.h",
               "RelativeDocumentMoniker": "lab01\\RenderObject.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.h",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\RenderObject.h",
               "RelativeToolTip": "lab01\\RenderObject.h",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAswBUAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-09-12T11:14:30.368Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Game.cpp",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\Game.cpp",
+              "DocumentMoniker": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Game.cpp",
               "RelativeDocumentMoniker": "lab01\\Game.cpp",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\AIGames\\lab01\\lab01\\Game.cpp",
+              "ToolTip": "C:\\Users\\c00283152\\Desktop\\AIGames\\lab01\\lab01\\Game.cpp",
               "RelativeToolTip": "lab01\\Game.cpp",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADEAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-09-12T11:06:30.277Z",
               "EditorCaption": ""

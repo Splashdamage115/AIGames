@@ -18,6 +18,7 @@
 /// </summary>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Player.h"
 
 
 const sf::Color ULTRAMARINE{ 5, 55,242,255 }; // const colour
@@ -29,28 +30,16 @@ public:
 	~Game();
 	void run();
 
+	static float deltaTime;
+	static sf::Font m_jerseyFont;
 private:
 
 	void processEvents();
 	void processKeys(const std::optional<sf::Event> t_event);
 	void checkKeyboardState();
-	void update(sf::Time t_deltaTime);
-	void render();
-	
-	void setupTexts();
-	void setupSprites();
-	void setupAudio();
+	void update(float t_deltaTime);
 
-	sf::Font m_jerseyFont;// font used by message
-	
-	sf::Text m_DELETEwelcomeMessage{ m_jerseyFont }; // text used for message on screen
-	sf::Texture m_DELETElogoTexture;//  texture used for sfml logo
-	sf::Sprite m_DELETElogoSprite{ m_DELETElogoTexture }; // sprite used for sfml logo
-	
-	sf::SoundBuffer m_DELETEsoundBuffer; // buffer for beep sound
-	sf::Sound m_DELETEsound{ m_DELETEsoundBuffer }; // sound object to play
-	bool m_DELETEexitGame; // control exiting game
-
+	Player m_player;
 };
 
 #pragma warning( pop ) 

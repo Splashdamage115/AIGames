@@ -1,6 +1,6 @@
 #include "RenderObject.h"
 
-RenderObject::RenderObject() : m_window{ sf::VideoMode{ sf::Vector2u{sf::VideoMode::getDesktopMode().size}, 32U}, "SFML Game 3.0", sf::State::Fullscreen}
+RenderObject::RenderObject() : m_window{ sf::VideoMode{ sf::Vector2u{sf::VideoMode::getDesktopMode().size}, 32U}, "AI Games"/*, sf::State::Fullscreen*/}
 {
 }
 
@@ -16,9 +16,9 @@ void RenderObject::start()
 
 bool RenderObject::addNewRenderObject(std::shared_ptr<sf::Drawable> t_renderObj, int t_layerNum)
 {
-	if (t_layerNum - 1 > m_layers.size())
+	if (m_layers.size() - 1 < t_layerNum)
 	{
-		while (m_layers.size() < t_layerNum)
+		while (m_layers.size() - 1 < t_layerNum)
 			m_layers.emplace_back();
 	}
 	
@@ -37,6 +37,8 @@ bool RenderObject::addNewRenderObject(std::shared_ptr<sf::Drawable> t_renderObj,
 
 void RenderObject::render()
 {
+	m_window.clear();
+
 	for each(auto layer in m_layers)
 	{
 		if (layer.empty()) continue; // error handling
