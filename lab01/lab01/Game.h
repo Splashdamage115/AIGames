@@ -19,6 +19,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
+#include "NPC.h"
 
 
 const sf::Color ULTRAMARINE{ 5, 55,242,255 }; // const colour
@@ -40,6 +41,7 @@ private:
 	void update(float t_deltaTime);
 
 	Player m_player;
+	NPC m_npc;
 };
 
 #pragma warning( pop ) 

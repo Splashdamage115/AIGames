@@ -13,10 +13,22 @@ void Player::start()
 	std::cout << angle << std::endl;
 	m_moveDirection = math::degreesToDisplacement(angle);
 
+	if (!m_texture.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
+	m_sprite = std::make_shared<sf::Sprite>(m_texture);
+
+
+	m_sprite->setOrigin(sf::Vector2f(m_sprite->getGlobalBounds().size / 2.f));
+	m_sprite->setScale(sf::Vector2f(0.08f, 0.08f));
+	m_sprite->setPosition(sf::Vector2f(100.f, 100.f));
+	m_sprite->setRotation(sf::degrees(math::displacementToDegrees(m_moveDirection) + 90.0f));
+	RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
+
+
 	m_body = std::make_shared<sf::CircleShape>();
 
 	m_body->setRadius(30.f);
-	m_body->setPosition(sf::Vector2f(100.f, 100.f));
+	m_body->setOrigin(sf::Vector2f(m_body->getRadius(), m_body->getRadius()));
+	m_body->setPosition(m_sprite->getPosition());
 	m_body->setFillColor(sf::Color::White);
 
 	RenderObject::getInstance().addNewRenderObject(m_body, 1);
@@ -24,29 +36,29 @@ void Player::start()
 
 void Player::update()
 {
-	m_body->move(m_moveDirection * Game::deltaTime * 100.f);
-
+	m_sprite->move(m_moveDirection * Game::deltaTime * m_speed);
+	m_body->setPosition(m_sprite->getPosition());
 	outOfBounds();
 }
 
 void Player::outOfBounds()
 {
-	sf::Vector2f playerPos = m_body->getPosition();
+	sf::Vector2f playerPos = m_sprite->getPosition();
 	sf::Vector2u screenSize = RenderObject::getInstance().getWindow().getSize();
-	if (playerPos.x < 0.f - m_body->getRadius() * 2.f)
+	if (playerPos.x < 0.f - m_sprite->getGlobalBounds().size.x)
 	{
-		m_body->setPosition(sf::Vector2f(screenSize.x, playerPos.y));
+		m_sprite->setPosition(sf::Vector2f(screenSize.x, playerPos.y));
 	}
-	if (playerPos.y < 0.f - m_body->getRadius() * 2.f)
+	if (playerPos.y < 0.f - m_sprite->getGlobalBounds().size.y)
 	{
-		m_body->setPosition(sf::Vector2f(playerPos.x, screenSize.y));
+		m_sprite->setPosition(sf::Vector2f(playerPos.x, screenSize.y));
 	}
 	if (playerPos.x > screenSize.x)
 	{
-		m_body->setPosition(sf::Vector2f(0.f - m_body->getRadius() * 2.f, playerPos.y));
+		m_sprite->setPosition(sf::Vector2f(0.f - m_sprite->getGlobalBounds().size.x, playerPos.y));
 	}
 	if (playerPos.y > screenSize.y)
 	{
-		m_body->setPosition(sf::Vector2f(playerPos.x, 0.f - m_body->getRadius() * 2.f));
+		m_sprite->setPosition(sf::Vector2f(playerPos.x, 0.f - m_sprite->getGlobalBounds().size.y));
 	}
 }

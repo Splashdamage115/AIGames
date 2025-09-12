@@ -14,6 +14,7 @@ Game::Game()
 	RenderObject::getInstance().start();
 	srand(static_cast<unsigned int>(time(nullptr)));
 	m_player.start();
+	m_npc.start();
 }
 
 Game::~Game()
@@ -73,6 +74,7 @@ void Game::update(float t_deltaTime)
 	checkKeyboardState();
 
 	m_player.update();
+	m_npc.update();
 }
 
 
