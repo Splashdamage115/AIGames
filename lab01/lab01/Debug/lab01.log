@@ -1,28 +1,28 @@
-﻿  NPC.cpp
+﻿  Player.cpp
 C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'NPC.cpp')
+  (compiling source file 'Player.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\stdexcept(100,19):
       see declaration of 'std::runtime_error'
       C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(12,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:         with
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:         [
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:             T=unsigned int
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:         ]
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:         and
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:         [
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:             T=float
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(50,48): warning C4244:         ]
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:         with
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:         [
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:             T=unsigned int
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:         ]
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:         and
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:         [
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:             T=float
-C:\Users\c00283152\Desktop\AIGames\lab01\lab01\NPC.cpp(54,58): warning C4244:         ]
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(12,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:         with
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:         [
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:             T=unsigned int
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:         ]
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:         and
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:         [
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:             T=float
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(51,48): warning C4244:         ]
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:         with
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:         [
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:             T=unsigned int
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:         ]
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:         and
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:         [
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:             T=float
+C:\Users\c00283152\Desktop\AIGames\lab01\lab01\Player.cpp(55,61): warning C4244:         ]
   lab01.vcxproj -> C:\Users\c00283152\Desktop\AIGames\lab01\Debug\lab01.exe

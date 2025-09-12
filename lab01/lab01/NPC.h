@@ -9,12 +9,20 @@ public:
 	void update();
 private:
 	void outOfBounds();
+
+	void increaseSpeed();
+	void decreaseSpeed();
+	void changeAngle(int t_direction);
+
 	std::shared_ptr<sf::CircleShape>m_body;
 	std::shared_ptr<sf::Sprite> m_sprite;
 	sf::Texture m_texture;
 
-	sf::Vector2f m_moveDirection;
+	float m_angle = 0.0f;
+	float m_angleChange = 100.0f;
 
 	float m_speed = 100.0f;
+	float m_maxSpeed = 500.0f;
+	float m_speedIncreaseFactor = 100.0f;
 };
 
