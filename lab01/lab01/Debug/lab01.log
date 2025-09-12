@@ -1,0 +1,15 @@
+﻿  Game.cpp
+C:\Users\gameuser\Desktop\AIGames\lab01\lab01\Game.cpp(50,55): warning C4100: 't_event': unreferenced parameter
+C:\Users\gameuser\Desktop\AIGames\lab01\lab01\Game.cpp(62,28): warning C4100: 't_deltaTime': unreferenced parameter
+  RenderObject.cpp
+C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'RenderObject.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
+      see declaration of 'std::runtime_error'
+      C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+C:\Users\gameuser\Desktop\AIGames\lab01\lab01\RenderObject.cpp(19,21): warning C4018: '>': signed/unsigned mismatch
+C:\Users\gameuser\Desktop\AIGames\lab01\lab01\RenderObject.cpp(21,26): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  lab01.vcxproj -> C:\Users\gameuser\Desktop\AIGames\lab01\Debug\lab01.exe
