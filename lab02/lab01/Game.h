@@ -41,7 +41,7 @@ private:
 	void update(float t_deltaTime);
 
 	Player m_player;
-	NPC m_npc;
+	std::vector<NPC> m_npcs;
 };
 
 #pragma warning( pop ) 

@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="abstractMoveState.cpp" />
+    <ClCompile Include="ArriveMoveState.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PursueMoveState.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="seekMoveState.cpp" />
@@ -30,11 +32,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstractMoveState.h" />
+    <ClInclude Include="ArriveMoveState.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PursueMoveState.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="seekMoveState.h" />
     <ClInclude Include="wanderMoveState.h" />
@@ -108,11 +112,11 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SFML_SDK)/include; C:\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SFML_SDK)/include; </AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SFML_SDK)\lib; C:\SFML-3.0.0\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SFML_SDK)\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

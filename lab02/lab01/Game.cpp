@@ -14,7 +14,18 @@ Game::Game()
 	RenderObject::getInstance().start();
 	srand(static_cast<unsigned int>(time(nullptr)));
 	m_player.start();
-	m_npc.start(NPC::MoveState::seek);
+
+	for (int i = 0; i < 5; i++)
+	{
+		m_npcs.emplace_back();
+	}
+	m_npcs.at(0).start(NPC::MoveState::wander, { 300.0f, 600.0f });
+	m_npcs.at(1).start(NPC::MoveState::seek,   { 600.0f, 300.0f });
+	m_npcs.at(2).start(NPC::MoveState::pursue, { 800.0f, 600.0f });
+	m_npcs.at(3).start(NPC::MoveState::arrive, { 900.0f, 100.0f });
+	m_npcs.at(4).start(NPC::MoveState::arrive, { 900.0f, 800.0f });
+
+	m_npcs.at(4).changeMoveSpeed(500.0f);
 }
 
 Game::~Game()
@@ -74,7 +85,10 @@ void Game::update(float t_deltaTime)
 	checkKeyboardState();
 
 	m_player.update();
-	m_npc.update(m_player.getPosition());
+	for (int i = 0; i < 5; i++)
+	{
+		m_npcs.at(i).update(m_player.getPosition(), m_player.getAngle(), m_player.getSpeed());
+	}
 }
 
 

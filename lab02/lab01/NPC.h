@@ -6,19 +6,19 @@ class NPC
 public:
 	enum class MoveState
 	{
-		none, seek, wander
+		none, seek, wander, arrive, pursue
 	};
 
 	NPC();
-	void start(MoveState t_moveType);
+	void start(MoveState t_moveType, sf::Vector2f t_position);
 
-	void update(sf::Vector2f t_playerPos);
+	void update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed);
+
+	void changeMoveSpeed(float t_newMaxMove);
 private:
 	void outOfBounds();
 
-	void increaseSpeed();
-	void decreaseSpeed();
-	void changeAngle(int t_direction);
+	std::shared_ptr<sf::VertexArray> m_line;
 
 	std::shared_ptr<sf::CircleShape>m_body;
 	std::shared_ptr<sf::Sprite> m_sprite;

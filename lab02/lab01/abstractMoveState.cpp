@@ -13,7 +13,7 @@ void abstractMoveState::increaseSpeed()
 
 void abstractMoveState::decreaseSpeed()
 {
-	m_speed -= m_speedIncreaseFactor * Game::deltaTime / 2.0f;
+	m_speed -= m_speedIncreaseFactor * Game::deltaTime;
 
 	if (m_speed < 0.f)
 	{
@@ -24,4 +24,11 @@ void abstractMoveState::decreaseSpeed()
 void abstractMoveState::changeAngle(int t_direction)
 {
 	m_angle += (m_angleChange * Game::deltaTime) * t_direction;
+
+	if (m_angle < 0.f)
+		m_angle = 360.f + m_angle;
+	if (m_angle > 360.f)
+	{
+		m_angle = m_angle - 360.f;
+	}
 }

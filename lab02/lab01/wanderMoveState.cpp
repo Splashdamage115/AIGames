@@ -11,7 +11,7 @@ void wanderMoveState::init()
     m_angle = rand() % 360;
 }
 
-sf::Vector2f wanderMoveState::moveVector(sf::Vector2f t_playerPos)
+sf::Vector2f wanderMoveState::moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 {
     return math::degreesToDisplacement(m_angle) * Game::deltaTime * m_speed;
 }

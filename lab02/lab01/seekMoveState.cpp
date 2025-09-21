@@ -11,18 +11,21 @@ void seekMoveState::init()
     m_angle = rand() % 360;
 }
 
-sf::Vector2f seekMoveState::moveVector(sf::Vector2f t_playerPos)
+sf::Vector2f seekMoveState::moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 {
     sf::Vector2f desiredDisplacement = math::displacement(*m_position, t_playerPos);
     float desiredAngle = math::displacementToDegrees(desiredDisplacement);
 
-    if (desiredAngle < m_angle)
-    {
-        changeAngle(-1);
-    }
-    else if (desiredAngle > m_angle)
+    float change = desiredAngle - m_angle;
+    float angleChange = (static_cast<int>(std::round(change + 360))) % 360;
+
+    if (angleChange < 180)
     {
         changeAngle(+1);
+    }
+    else
+    {
+        changeAngle(-1);
     }
 
     return math::degreesToDisplacement(m_angle) * Game::deltaTime * m_speed;

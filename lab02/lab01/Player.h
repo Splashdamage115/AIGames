@@ -9,6 +9,8 @@ public:
 	void update();
 
 	sf::Vector2f getPosition() { return m_body->getPosition(); }
+	float getSpeed() { return m_speed; }
+	float getAngle() { return m_angle; }
 private:
 	void outOfBounds();
 

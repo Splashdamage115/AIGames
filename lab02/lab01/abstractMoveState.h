@@ -10,11 +10,16 @@ public:
 	}
 	virtual void init(){ }
 
-	virtual sf::Vector2f moveVector(sf::Vector2f t_playerPos) = 0;
+	virtual sf::Vector2f moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed) = 0;
 
 	sf::Angle getAngle()
 	{
 		return sf::degrees(m_angle + 90.0f);
+	}
+
+	void changeMaxSpeed(float newMax)
+	{
+		m_maxSpeed = newMax;
 	}
 protected:
 	void increaseSpeed();

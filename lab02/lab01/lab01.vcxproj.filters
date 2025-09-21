@@ -54,6 +54,12 @@
     <ClCompile Include="seekMoveState.cpp">
       <Filter>Source Files\NPCMoveTypes</Filter>
     </ClCompile>
+    <ClCompile Include="ArriveMoveState.cpp">
+      <Filter>Source Files\NPCMoveTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="PursueMoveState.cpp">
+      <Filter>Source Files\NPCMoveTypes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -81,6 +87,12 @@
       <Filter>Header Files\NPCMoveTypes</Filter>
     </ClInclude>
     <ClInclude Include="seekMoveState.h">
+      <Filter>Header Files\NPCMoveTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ArriveMoveState.h">
+      <Filter>Header Files\NPCMoveTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="PursueMoveState.h">
       <Filter>Header Files\NPCMoveTypes</Filter>
     </ClInclude>
   </ItemGroup>
