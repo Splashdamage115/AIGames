@@ -45,6 +45,8 @@ private:
 	Player m_player;
 	std::vector<NPC> m_npcs;
 	std::vector<bool> m_npcActive;
+
+	std::shared_ptr<sf::Text> m_instructions;
 };
 
 #pragma warning( pop ) 

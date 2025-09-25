@@ -29,6 +29,14 @@ Game::Game()
 
 	m_npcs.at(0).changeMoveSpeed(500.0f);
 	m_npcs.at(4).changeMaxMoveSpeed(400.0f);
+
+	m_instructions = std::make_shared<sf::Text>(m_jerseyFont);
+	m_instructions->setCharacterSize(42u);
+	m_instructions->setFillColor(sf::Color(255, 255, 255, 125));
+	m_instructions->setPosition(sf::Vector2f(100.f, 100.f));
+	m_instructions->setString("USE KEYS 1-5 TO CHANGE NPC ACTIVE/INACTIVE");
+
+	RenderObject::getInstance().addNewRenderObject(m_instructions, 0);
 }
 
 Game::~Game()

@@ -7,7 +7,7 @@ public:
 	void init() override;
 	sf::Vector2f moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed) override;
 private:
-	float lookAheadTime = 1.0f;
-	float arriveDistance = 80.0f;
+	float lookAheadTime = 200.0f;
+	float arriveDistance = 0.0f;
 };
 

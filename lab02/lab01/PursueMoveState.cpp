@@ -13,7 +13,7 @@ void PursueMoveState::init()
 
 sf::Vector2f PursueMoveState::moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 {
-    sf::Vector2f predictedPosition = t_playerPos + (math::degreesToDisplacement(t_playerAngle) * lookAheadTime * t_speed);
+    sf::Vector2f predictedPosition = t_playerPos + (math::degreesToDisplacement(t_playerAngle) * lookAheadTime * (t_speed *1000.0f));
     float dist = math::distancebetweenPoints(*m_position, predictedPosition);
     sf::Vector2f desiredDisplacement;
 
