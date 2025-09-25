@@ -18,6 +18,8 @@ Game::Game()
 	for (int i = 0; i < 5; i++)
 	{
 		m_npcs.emplace_back();
+		m_npcActive.emplace_back();
+		m_npcActive.at(i) = true;
 	}
 	m_npcs.at(0).start(NPC::MoveState::wander, { 300.0f, 600.0f });
 	m_npcs.at(1).start(NPC::MoveState::seek,   { 600.0f, 300.0f });
@@ -70,6 +72,29 @@ void Game::processEvents()
 
 void Game::processKeys(const std::optional<sf::Event> t_event)
 {
+	if (const auto* keyPressed = t_event->getIf<sf::Event::KeyReleased>())
+	{
+		if (keyPressed->scancode == sf::Keyboard::Scancode::Num1)
+		{
+			changeNPC(0);
+		}
+		else if (keyPressed->scancode == sf::Keyboard::Scancode::Num2)
+		{
+			changeNPC(1);
+		}
+		else if (keyPressed->scancode == sf::Keyboard::Scancode::Num3)
+		{
+			changeNPC(2);
+		}
+		else if (keyPressed->scancode == sf::Keyboard::Scancode::Num4)
+		{
+			changeNPC(3);
+		}
+		else if (keyPressed->scancode == sf::Keyboard::Scancode::Num5)
+		{
+			changeNPC(4);
+		}
+	}
 }
 
 void Game::checkKeyboardState()
@@ -88,7 +113,43 @@ void Game::update(float t_deltaTime)
 	m_player.update();
 	for (int i = 0; i < 5; i++)
 	{
-		m_npcs.at(i).update(m_player.getPosition(), m_player.getAngle(), m_player.getSpeed());
+		if(m_npcActive.at(i))
+			m_npcs.at(i).update(m_player.getPosition(), m_player.getAngle(), m_player.getSpeed());
+	}
+}
+
+void Game::changeNPC(int t_num)
+{
+	if (m_npcActive.at(t_num))
+	{
+		m_npcs.at(t_num) = NPC();
+		m_npcActive.at(t_num) = false;
+	}
+	else
+	{
+		switch (t_num)
+		{
+		case 0:
+			m_npcs.at(t_num).start(NPC::MoveState::wander, { 300.0f, 600.0f });
+			m_npcs.at(t_num).changeMoveSpeed(500.0f);
+			break;
+		case 1:
+			m_npcs.at(t_num).start(NPC::MoveState::seek, { 600.0f, 300.0f });
+			break;
+		case 2:
+			m_npcs.at(t_num).start(NPC::MoveState::pursue, { 800.0f, 600.0f });
+			break;
+		case 3:
+			m_npcs.at(t_num).start(NPC::MoveState::arrive, { 900.0f, 100.0f });
+			break;
+		case 4:
+			m_npcs.at(t_num).start(NPC::MoveState::arrive, { 900.0f, 800.0f });
+			m_npcs.at(t_num).changeMaxMoveSpeed(400.0f);
+			break;
+		default:
+			break;
+		}
+		m_npcActive.at(t_num) = true;
 	}
 }
 

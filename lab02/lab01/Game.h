@@ -40,8 +40,11 @@ private:
 	void checkKeyboardState();
 	void update(float t_deltaTime);
 
+	void changeNPC(int t_num);
+
 	Player m_player;
 	std::vector<NPC> m_npcs;
+	std::vector<bool> m_npcActive;
 };
 
 #pragma warning( pop ) 

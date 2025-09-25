@@ -50,30 +50,41 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 
 	//RenderObject::getInstance().addNewRenderObject(m_body, 1);
 
+	m_stateType = std::make_shared<sf::Text>(Game::m_jerseyFont);
+
+	m_stateType->setCharacterSize(16u);
+	m_stateType->setFillColor(sf::Color::White);
+
 	// choose the move type
 	switch (t_moveType)
 	{
 	case NPC::MoveState::none:
 		m_moveState = std::make_shared<wanderMoveState>(m_position);
+		m_stateType->setString("Wander");
 		break;
 	case NPC::MoveState::seek:
 		m_moveState = std::make_shared<seekMoveState>(m_position);
+		m_stateType->setString("Seek");
 		break;
 	case NPC::MoveState::arrive:
 		m_moveState = std::make_shared<ArriveMoveState>(m_position);
+		m_stateType->setString("Arrive");
 		break;
 	case NPC::MoveState::wander:
 		m_moveState = std::make_shared<wanderMoveState>(m_position);
+		m_stateType->setString("Wander");
 		break;
 	case NPC::MoveState::pursue:
 		m_moveState = std::make_shared<PursueMoveState>(m_position);
+		m_stateType->setString("Pursue");
 		break;
 	default:
 		m_moveState = std::make_shared<wanderMoveState>(m_position);
+		m_stateType->setString("Wander");
 		break;
 	}
 
-
+	RenderObject::getInstance().addNewRenderObject(m_stateType, 3);
 	m_moveState->init();
 	m_sprite->setRotation(m_moveState->getAngle());
 }
@@ -91,7 +102,25 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 	m_position->x = m_sprite->getPosition().x;
 	m_position->y = m_sprite->getPosition().y;
 
-	bool insideCone = false;
+	m_stateType->setPosition(*m_position + sf::Vector2f(30.0f, 30.0f));
+
+	m_cone->operator[](0).position = m_sprite->getPosition();
+	m_cone->operator[](1).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
+	m_cone->operator[](2).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
+	m_cone->operator[](3).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
+	m_cone->operator[](4).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
+	m_cone->operator[](5).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
+
+	sf::ConvexShape tempCone(3);
+	tempCone.setPoint(0, m_cone->operator[](0).position);
+	tempCone.setPoint(1, m_cone->operator[](1).position);
+	tempCone.setPoint(2, m_cone->operator[](5).position);
+
+	sf::FloatRect playerBox;
+	playerBox.position = t_playerPos;
+	playerBox.size = sf::Vector2f(10.f, 10.f);
+
+	bool insideCone = math::coneIntersectsBox(tempCone, playerBox);
 	int corners = 6;
 	if (insideCone)
 	{
@@ -110,12 +139,6 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 		}
 	}
 
-	m_cone->operator[](0).position = m_sprite->getPosition();
-	m_cone->operator[](1).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
-	m_cone->operator[](2).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
-	m_cone->operator[](3).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
-	m_cone->operator[](4).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
-	m_cone->operator[](5).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
 }
 
 void NPC::changeMaxMoveSpeed(float t_newMaxMove)

@@ -80,7 +80,7 @@ public:
 	}
 	static bool containedInCone(sf::Vector2f t_pointA, sf::Vector2f t_pointB, sf::Vector2f t_pointC, sf::Vector2f t_checkPoint)
 	{
-		if (circleIntersects(t_pointA, t_checkPoint, distancebetweenPoints(t_pointA, t_pointB) + 80.f, 0.f))
+		if (circleIntersects(t_pointA, t_checkPoint, distancebetweenPoints(t_pointA, t_pointB), 0.f))
 			if (checkIsLeft(t_pointA, t_pointB, t_checkPoint) && checkIsLeft(t_pointC, t_pointA, t_checkPoint))
 				return true;
 		return false;
@@ -107,6 +107,28 @@ public:
 			return true;
 		}
 		return false;
+	}
+	static bool coneIntersectsBox(sf::ConvexShape t_cone, sf::FloatRect t_box)
+	{
+		bool intersects = false;
+		sf::Vector2f coneMid = t_cone.getPoint(0) + t_cone.getPosition();
+		sf::Vector2f coneStart = t_cone.getPoint(1) + t_cone.getPosition();
+		sf::Vector2f coneEnd = t_cone.getPoint(t_cone.getPointCount() - 1) + t_cone.getPosition();
+
+		coneStart = (rotatePoint(t_cone.getPoint(1), t_cone.getRotation().asDegrees()) + t_cone.getPosition());
+		coneEnd = (rotatePoint(t_cone.getPoint(t_cone.getPointCount() - 1), t_cone.getRotation().asDegrees())) + t_cone.getPosition();
+		sf::Vector2f boxPos = t_box.position;
+		sf::Vector2f boxSize = t_box.size;
+		if (containedInCone(coneMid, coneStart, coneEnd, boxPos))
+			intersects = true;
+		else if (containedInCone(coneMid, coneStart, coneEnd, boxPos + boxSize))
+			intersects = true;
+		else if (containedInCone(coneMid, coneStart, coneEnd, boxPos + sf::Vector2f(boxSize.x, 0.f)))
+			intersects = true;
+		else if (containedInCone(coneMid, coneStart, coneEnd, boxPos + sf::Vector2f(0.f, boxSize.y)))
+			intersects = true;
+
+		return intersects;
 	}
 };
 

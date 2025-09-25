@@ -27,5 +27,6 @@ private:
 	std::shared_ptr<sf::Vector2f> m_position;
 	sf::Texture m_texture;
 	std::shared_ptr<abstractMoveState> m_moveState;
+	std::shared_ptr<sf::Text> m_stateType;
 };
 
