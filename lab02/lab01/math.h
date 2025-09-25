@@ -102,7 +102,7 @@ public:
 	template <typename T>
 	static bool nearlyEquals(T t_num1, T t_num2, T threshold = 1e-6)
 	{
-		if (std::abs(t_num1 - t_num2) < 1e-6)
+		if (std::abs(t_num1 - t_num2) < threshold)
 		{
 			return true;
 		}

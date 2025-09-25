@@ -12,7 +12,7 @@ private:
 	float m_targetAngleIncrease = 0.0f;
 	const static int m_rotateIncrease = 30;
 
-	const static int m_maxWaitTime = 5;
+	const static int m_maxWaitTime = 3;
 	float m_currentWaitTimeLeft = 0.0f;
 	bool m_randomisePoint = false;
 

@@ -16,10 +16,9 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 	if (!m_texture.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
 	m_sprite = std::make_shared<sf::Sprite>(m_texture);
 
-	m_line = std::make_shared<sf::VertexArray>();
+	m_line = std::make_shared<sf::VertexArray>(sf::PrimitiveType::LineStrip, 2);
 
-	m_line->append(sf::Vertex());
-	m_line->append(sf::Vertex());
+	
 
 	RenderObject::getInstance().addNewRenderObject(m_line, 1);
 
@@ -85,6 +84,7 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 void NPC::changeMoveSpeed(float t_newMaxMove)
 {
 	m_moveState->changeMaxSpeed(t_newMaxMove);
+	m_moveState->changeSpeed(t_newMaxMove);
 }
 
 void NPC::outOfBounds()

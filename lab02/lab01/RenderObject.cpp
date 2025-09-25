@@ -39,14 +39,15 @@ void RenderObject::render()
 {
 	m_window.clear();
 
-	for each(auto layer in m_layers)
+	for (int i = 0; i < m_layers.size();i++)
 	{
-		if (layer.empty()) continue; // error handling
-
-		for each(auto var in layer)
+		if (!m_layers.at(i).empty()) // error handling
 		{
-			if (var.lock())
-				m_window.draw(*var.lock());
+			for each(auto var in m_layers.at(i))
+			{
+				if (var.lock())
+					m_window.draw(*var.lock());
+			}
 		}
 	}
 	m_window.display();

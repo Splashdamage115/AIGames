@@ -21,6 +21,10 @@ public:
 	{
 		m_maxSpeed = newMax;
 	}
+	void changeSpeed(float newMax)
+	{
+		m_speed = newMax;
+	}
 protected:
 	void increaseSpeed();
 	void decreaseSpeed();

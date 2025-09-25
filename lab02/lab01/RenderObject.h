@@ -24,6 +24,7 @@ public:
 private:
 	RenderObject(); // Constructor
 	std::vector<std::vector<std::weak_ptr<sf::Drawable>>> m_layers;
+	std::vector<std::vector<std::weak_ptr<sf::Vertex>>> m_lines;
 
 	sf::RenderWindow m_window;
 };

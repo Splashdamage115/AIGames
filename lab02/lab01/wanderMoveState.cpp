@@ -11,6 +11,7 @@ void wanderMoveState::init()
     m_angle = rand() % 360;
 
     setNewWaitTime();
+    chooseNewPoint();
 }
 
 sf::Vector2f wanderMoveState::moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
@@ -20,12 +21,8 @@ sf::Vector2f wanderMoveState::moveVector(sf::Vector2f t_playerPos, float t_playe
         if (checkTimeUp())
         {
             chooseNewPoint();
-        }
-        else
-        {
             m_randomisePoint = false;
         }
-
     }
     else if (checkFacingPoint())
     {
@@ -45,13 +42,13 @@ sf::Vector2f wanderMoveState::moveVector(sf::Vector2f t_playerPos, float t_playe
             changeAngle(-1);
         }
     }
-
+    //std::cout << m_currentWaitTimeLeft << std::endl;
     return math::degreesToDisplacement(m_angle) * Game::deltaTime * m_speed;
 }
 
 void wanderMoveState::setNewWaitTime()
 {
-    m_currentWaitTimeLeft = static_cast<float>(rand() % m_maxWaitTime);
+    m_currentWaitTimeLeft = static_cast<float>((rand() % m_maxWaitTime));
 }
 
 bool wanderMoveState::checkTimeUp()
@@ -68,7 +65,7 @@ bool wanderMoveState::checkTimeUp()
 
 bool wanderMoveState::checkFacingPoint()
 {
-    if (math::nearlyEquals(m_angle, m_targetAngle))
+    if (math::nearlyEquals(m_angle, m_targetAngle, 1.f))
     {
         return true;
     }
@@ -77,6 +74,10 @@ bool wanderMoveState::checkFacingPoint()
 
 void wanderMoveState::chooseNewPoint()
 {
-    m_targetAngle = (rand() % 180) + m_angle + (m_targetAngleIncrease *(rand() % 2 == 0 ? -1 : 1));
+    m_targetAngle = ((rand() % 180) - 90) + m_angle + (m_targetAngleIncrease *(rand() % 2 == 0 ? -1 : 1));
+    while (m_targetAngle > 360.0f)
+        m_targetAngle -= 360.0f;
+    while (m_targetAngle < 0.0f)
+        m_targetAngle += 360.0f;
     m_targetAngleIncrease += m_rotateIncrease;
 }
