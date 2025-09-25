@@ -43,10 +43,14 @@ void ArriveMoveState::arrive(sf::Vector2f t_playerPos)
         decreaseSpeed();
         decreaseSpeed();
         decreaseSpeed();
+        decreaseSpeed();
+        decreaseSpeed();
+
     }
     else if (dist <= arriveDistance)
     {
         increaseSpeed();
+        decreaseSpeed();
         decreaseSpeed();
     }
     else

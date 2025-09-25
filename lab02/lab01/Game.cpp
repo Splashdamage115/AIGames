@@ -26,7 +26,7 @@ Game::Game()
 	m_npcs.at(4).start(NPC::MoveState::arrive, { 900.0f, 800.0f });
 
 	m_npcs.at(0).changeMoveSpeed(500.0f);
-	m_npcs.at(4).changeMoveSpeed(500.0f);
+	m_npcs.at(4).changeMaxMoveSpeed(400.0f);
 }
 
 Game::~Game()

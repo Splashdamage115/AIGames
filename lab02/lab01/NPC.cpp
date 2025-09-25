@@ -18,7 +18,18 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 
 	m_line = std::make_shared<sf::VertexArray>(sf::PrimitiveType::LineStrip, 2);
 
+	int corners = 6;
+	m_cone = std::make_shared<sf::VertexArray>(sf::PrimitiveType::TriangleFan, corners);
+
+	m_cone->operator[](0).color = sf::Color(255, 0, 0, 220);
+	for (int i = 1; i < corners; i++)
+	{
+		m_cone->operator[](i).color = sf::Color(255, 0, 0, 60);
+	}
 	
+
+
+	RenderObject::getInstance().addNewRenderObject(m_cone, 1);
 
 	RenderObject::getInstance().addNewRenderObject(m_line, 1);
 
@@ -73,17 +84,47 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 	m_sprite->setRotation(m_moveState->getAngle());
 
 	m_line->operator[](0).position = m_sprite->getPosition();
-	m_line->operator[](1).position = m_sprite->getPosition()+m_moveState->moveVector(t_playerPos, t_playerAngle, t_speed) * 100.0f;
+	m_line->operator[](1).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
 
 	m_body->setPosition(m_sprite->getPosition());
 	outOfBounds();
 	m_position->x = m_sprite->getPosition().x;
 	m_position->y = m_sprite->getPosition().y;
+
+	bool insideCone = false;
+	int corners = 6;
+	if (insideCone)
+	{
+		m_cone->operator[](0).color = sf::Color(255, 255, 0, 220);
+		for (int i = 1; i < corners; i++)
+		{
+			m_cone->operator[](i).color = sf::Color(255, 255, 0, 60);
+		}
+	}
+	else
+	{
+		m_cone->operator[](0).color = sf::Color(255, 0, 0, 220);
+		for (int i = 1; i < corners; i++)
+		{
+			m_cone->operator[](i).color = sf::Color(255, 0, 0, 60);
+		}
+	}
+
+	m_cone->operator[](0).position = m_sprite->getPosition();
+	m_cone->operator[](1).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
+	m_cone->operator[](2).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
+	m_cone->operator[](3).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
+	m_cone->operator[](4).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
+	m_cone->operator[](5).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
+}
+
+void NPC::changeMaxMoveSpeed(float t_newMaxMove)
+{
+	m_moveState->changeMaxSpeed(t_newMaxMove);
 }
 
 void NPC::changeMoveSpeed(float t_newMaxMove)
 {
-	m_moveState->changeMaxSpeed(t_newMaxMove);
 	m_moveState->changeSpeed(t_newMaxMove);
 }
 
