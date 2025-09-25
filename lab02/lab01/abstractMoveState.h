@@ -27,7 +27,7 @@ protected:
 	void changeAngle(int t_direction);
 
 	float m_angle = 0.0f;
-	float m_angleChange = 100.0f;
+	float m_angleChange = 50.0f;
 
 	float m_speed = 100.0f;
 	float m_maxSpeed = 500.0f;
