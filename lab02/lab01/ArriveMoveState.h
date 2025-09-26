@@ -7,8 +7,8 @@ public:
 	void init() override;
 	sf::Vector2f moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed) override;
 private:
-	float arriveDistance = 120.0f;
-	float closeDistance = 80.0f;
+	float arriveDistance = 300.0f;
+	float closeDistance = 120.0f;
 	
 	void arrive(sf::Vector2f t_playerPos);
 };
