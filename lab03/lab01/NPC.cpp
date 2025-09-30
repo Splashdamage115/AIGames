@@ -158,6 +158,11 @@ void NPC::changeMoveSpeed(float t_newMaxMove)
 	m_moveState->changeSpeed(t_newMaxMove);
 }
 
+sf::Vector2f NPC::getPos()
+{
+	return sf::Vector2f() ;
+}
+
 void NPC::outOfBounds()
 {
 	sf::Vector2f playerPos = m_sprite->getPosition();

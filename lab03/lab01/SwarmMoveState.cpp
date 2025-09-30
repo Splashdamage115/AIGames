@@ -17,5 +17,6 @@ sf::Vector2f SwarmMoveState::moveVector(sf::Vector2f t_other, float t_, float t_
 	float steering = -A / rn + B / rm;
 
 
+
 	return sf::Vector2f();
 }

@@ -16,6 +16,8 @@ public:
 
 	void changeMaxMoveSpeed(float t_newMaxMove);
 	void changeMoveSpeed(float t_newMaxMove);
+
+	sf::Vector2f getPos();
 private:
 	void outOfBounds();
 
