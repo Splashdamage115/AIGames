@@ -11,6 +11,7 @@ public:
 	sf::Vector2f moveVector(sf::Vector2f t_other, float t_, float t_2) override;
 
 private:
+	// this works, i dont have the patience to find the exact variables
 	float A = 800.f;
 	float B = 2000.f;
 	float N = 200.f;
