@@ -8,9 +8,11 @@
 
 float Game::deltaTime = 0.f;
 sf::Font Game::m_jerseyFont;
+sf::Texture Game::m_shipTexture;
 
 Game::Game()
 {
+	if (!m_shipTexture.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
 	if (!m_jerseyFont.openFromFile("ASSETS\\FONTS\\Jersey20-Regular.ttf")) std::cout << "problem loading arial black font" << std::endl;
 
 	RenderObject::getInstance().start();
@@ -140,27 +142,31 @@ void Game::update(float t_deltaTime)
 
 void Game::calculateClosest()
 {
-	int currentClosest = 0;
-	float closestDistance = 999999999999999999999.f;
-	float currentDistance = 999999999999999999999.f;
-
 	for (int i = 0; i < m_npcs.size(); i++)
 	{
-		currentDistance = 999999999999999999999.f;
-		
+		float closestDistance = std::numeric_limits<float>::max();
+		int closestIndex = -1;
+
 		for (int j = 0; j < m_npcs.size(); j++)
 		{
 			if (i == j)
 				continue;
-			currentDistance = math::distance(m_npcs.at(i).getPos(), m_npcs.at(j).getPos());
+
+			float currentDistance = math::distance(m_npcs.at(i).getPos(), m_npcs.at(j).getPos());
+
 			if (currentDistance < closestDistance)
 			{
-				m_closestNpc.at(i) = j;
 				closestDistance = currentDistance;
+				closestIndex = j;
 			}
 		}
+
+		m_closestNpc.at(i) = closestIndex;
 	}
+
+	std::cout << "Closest NPCs calculated.\n";
 }
+
 
 //void Game::changeNPC(int t_num)
 //{

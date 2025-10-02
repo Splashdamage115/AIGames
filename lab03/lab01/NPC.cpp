@@ -14,8 +14,7 @@ NPC::NPC()
 
 void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 {
-	if (!m_texture.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
-	m_sprite = std::make_shared<sf::Sprite>(m_texture);
+	m_sprite = std::make_shared<sf::Sprite>(Game::m_shipTexture);
 
 	m_line = std::make_shared<sf::VertexArray>(sf::PrimitiveType::LineStrip, 2);
 
@@ -40,7 +39,7 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 	m_sprite->setOrigin(sf::Vector2f(m_sprite->getGlobalBounds().size / 2.f));
 	m_sprite->setScale(sf::Vector2f(0.08f, 0.08f));
 	m_sprite->setPosition(t_position);
-	//RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
+	RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
 
 	m_body = std::make_shared<sf::CircleShape>();
 
@@ -81,7 +80,7 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 		break;
 	case NPC::MoveState::swarm:
 		m_moveState = std::make_shared<SwarmMoveState>(m_position);
-		//m_sprite->setScale(sf::Vector2f(0.2f,0.2f));
+		m_sprite->setScale(sf::Vector2f(0.04f,0.04f));
 		m_body->setRadius(10.0f);
 		m_stateType->setString("Swarm");
 		break;
@@ -100,24 +99,25 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 {
 	m_sprite->move(m_moveState->moveVector(t_playerPos, t_playerAngle, t_speed));
 	m_sprite->setRotation(m_moveState->getAngle());
+	m_body->setPosition(m_sprite->getPosition() + sf::Vector2f(20.0f,20.0f));
 
-	sf::Vector2f center = m_body->getPosition() - sf::Vector2f(m_body->getRadius() + 10.0f, m_body->getRadius() + 10.0f);
+	sf::Vector2f center = m_sprite->getPosition();
 
 	m_line->operator[](0).position = center;
-	m_line->operator[](1).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f) * 300.0f);
+	m_line->operator[](1).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
 
 	outOfBounds();
-	m_position->x = center.x;
-	m_position->y = center.y;
+	m_position->x = m_sprite->getPosition().x;
+	m_position->y = m_sprite->getPosition().y;
 
 	m_stateType->setPosition(*m_position + sf::Vector2f(30.0f, 30.0f));
 
 	m_cone->operator[](0).position = center;
-	m_cone->operator[](1).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
-	m_cone->operator[](2).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
-	m_cone->operator[](3).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f) * 300.0f);
-	m_cone->operator[](4).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
-	m_cone->operator[](5).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
+	m_cone->operator[](1).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
+	m_cone->operator[](2).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
+	m_cone->operator[](3).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
+	m_cone->operator[](4).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
+	m_cone->operator[](5).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
 
 	sf::ConvexShape tempCone(3);
 	tempCone.setPoint(0, m_cone->operator[](0).position);
@@ -161,7 +161,7 @@ void NPC::changeMoveSpeed(float t_newMaxMove)
 
 sf::Vector2f NPC::getPos()
 {
-	return sf::Vector2f() ;
+	return m_sprite->getPosition();
 }
 
 void NPC::outOfBounds()

@@ -33,6 +33,7 @@ public:
 
 	static float deltaTime;
 	static sf::Font m_jerseyFont;
+	static sf::Texture m_shipTexture;
 private:
 
 	void processEvents();

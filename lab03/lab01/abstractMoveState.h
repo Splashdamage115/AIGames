@@ -33,7 +33,7 @@ protected:
 	float m_angle = 0.0f;
 	float m_angleChange = 50.0f;
 
-	float m_speed = 100.0f;
+	float m_speed = 200.0f;
 	float m_maxSpeed = 300.0f;
 	float m_speedIncreaseFactor = 100.0f;
 	std::shared_ptr<sf::Vector2f> m_position;

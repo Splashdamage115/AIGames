@@ -12,6 +12,14 @@ public:
 	{
 		return std::sqrt((t_pos1.x - t_pos2.x) * (t_pos1.x - t_pos2.x) + (t_pos1.y - t_pos2.y) * (t_pos1.y - t_pos2.y));
 	}
+	static sf::Vector2f normalize(sf::Vector2f v) {
+		float length = std::sqrt(v.x * v.x + v.y * v.y);
+		return length != 0 ? sf::Vector2f(v.x / length, v.y / length) : sf::Vector2f(0.f, 0.f);
+	}
+	static float vectorToDegrees(sf::Vector2f v) {
+		float angle = std::atan2(v.y, v.x) * 180.f / PI;
+		return fmod(angle + 360.f, 360.f); // Normalize to [0, 360]
+	}
 	static float squareDistancebetweenPoints(sf::Vector2f t_pos1, sf::Vector2f t_pos2)
 	{
 		return ((t_pos2.x - t_pos1.x) * (t_pos2.x - t_pos1.x) + (t_pos2.y - t_pos1.y) * (t_pos2.y - t_pos1.y));
