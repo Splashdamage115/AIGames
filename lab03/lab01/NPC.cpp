@@ -30,7 +30,7 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 	
 
 
-	RenderObject::getInstance().addNewRenderObject(m_cone, 1);
+	//RenderObject::getInstance().addNewRenderObject(m_cone, 1);
 
 	RenderObject::getInstance().addNewRenderObject(m_line, 1);
 
@@ -101,22 +101,23 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 	m_sprite->move(m_moveState->moveVector(t_playerPos, t_playerAngle, t_speed));
 	m_sprite->setRotation(m_moveState->getAngle());
 
-	m_line->operator[](0).position = m_sprite->getPosition();
-	m_line->operator[](1).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
+	sf::Vector2f center = m_body->getPosition() - sf::Vector2f(m_body->getRadius() + 10.0f, m_body->getRadius() + 10.0f);
 
-	m_body->setPosition(m_sprite->getPosition());
+	m_line->operator[](0).position = center;
+	m_line->operator[](1).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f) * 300.0f);
+
 	outOfBounds();
-	m_position->x = m_sprite->getPosition().x;
-	m_position->y = m_sprite->getPosition().y;
+	m_position->x = center.x;
+	m_position->y = center.y;
 
 	m_stateType->setPosition(*m_position + sf::Vector2f(30.0f, 30.0f));
 
-	m_cone->operator[](0).position = m_sprite->getPosition();
-	m_cone->operator[](1).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
-	m_cone->operator[](2).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
-	m_cone->operator[](3).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
-	m_cone->operator[](4).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
-	m_cone->operator[](5).position = m_sprite->getPosition() + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
+	m_cone->operator[](0).position = center;
+	m_cone->operator[](1).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
+	m_cone->operator[](2).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
+	m_cone->operator[](3).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f) * 300.0f);
+	m_cone->operator[](4).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
+	m_cone->operator[](5).position = center + (math::degreesToDisplacement(m_body->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
 
 	sf::ConvexShape tempCone(3);
 	tempCone.setPoint(0, m_cone->operator[](0).position);

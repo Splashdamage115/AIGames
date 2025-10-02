@@ -1,6 +1,7 @@
 #pragma once
 
 #include "abstractMoveState.h"
+#include "SimpleButton.h"
 
 class SwarmMoveState : public abstractMoveState
 {
@@ -12,9 +13,9 @@ public:
 	sf::Vector2f getPosition();
 
 private:
-	float A = 10.f;
-	float B = 10.f;
-	float N = 10.f;
-	float M = 10.f;
+	float A = 1.f;
+	float B = 1.f;
+	float N = 1.f;
+	float M = 1.f;
 };
 

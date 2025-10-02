@@ -39,12 +39,14 @@ private:
 	void processKeys(const std::optional<sf::Event> t_event);
 	void checkKeyboardState();
 	void update(float t_deltaTime);
+	void calculateClosest();
 
 	//void changeNPC(int t_num);
 
 	Player m_player;
 	std::vector<NPC> m_npcs;
 	std::vector<bool> m_npcActive;
+	std::vector<int> m_closestNpc;
 
 	//std::shared_ptr<sf::Text> m_instructions;
 };

@@ -28,6 +28,9 @@
     <Filter Include="Source Files\NPCMoveTypes">
       <UniqueIdentifier>{8b634f5f-e140-4e63-87e3-e6ac64b7f585}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Library">
+      <UniqueIdentifier>{2545c20f-1f55-483d-96d2-9214b2c8fbb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="SwarmMoveState.h">
       <Filter>Header Files\NPCMoveTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleButton.h">
+      <Filter>Header Files\Library</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #include "RenderObject.h"
 
-RenderObject::RenderObject() : m_window{ sf::VideoMode{ sf::Vector2u{sf::VideoMode::getDesktopMode().size}, 32U}, "AI Games"/*, sf::State::Fullscreen*/}
+RenderObject::RenderObject() : m_window{ sf::VideoMode{ sf::Vector2u{sf::VideoMode::getDesktopMode().size}, 32U}, "AI Games", sf::State::Fullscreen}
 {
 }
 

@@ -42,6 +42,7 @@
     <ClInclude Include="PursueMoveState.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="seekMoveState.h" />
+    <ClInclude Include="SimpleButton.h" />
     <ClInclude Include="SwarmMoveState.h" />
     <ClInclude Include="wanderMoveState.h" />
   </ItemGroup>

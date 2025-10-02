@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <iostream>
 #include "RenderObject.h"
+#include "math.h"
+#include "SimpleButton.h"
 
 float Game::deltaTime = 0.f;
 sf::Font Game::m_jerseyFont;
@@ -30,7 +32,8 @@ Game::Game()
 		m_npcs.emplace_back();
 		m_npcActive.emplace_back();
 		m_npcActive.at(i) = true;
-		m_npcs.at(i).start(NPC::MoveState::wander, { 100.0f + (offsetX * (i % Loop)), 100.0f + (offsetY * yoff)});
+		m_npcs.at(i).start(NPC::MoveState::swarm, { 100.0f + (offsetX * (i % Loop)), 100.0f + (offsetY * yoff)});
+		m_closestNpc.push_back(0);
 	}
 
 	//m_instructions = std::make_shared<sf::Text>(m_jerseyFont);
@@ -118,14 +121,44 @@ void Game::checkKeyboardState()
 
 void Game::update(float t_deltaTime)
 {
+	SimpleButtonHolder::getInstance().setMouse(sf::Vector2f(static_cast<float>(sf::Mouse::getPosition().x), static_cast<float>(sf::Mouse::getPosition().y)));
+	SimpleButtonHolder::getInstance().update();
+
 	Game::deltaTime = t_deltaTime;
 	checkKeyboardState();
 
 	m_player.update();
+
+	calculateClosest();
+
 	for (unsigned int i = 0; i < m_npcs.size(); i++)
 	{
 		if(m_npcActive.at(i))
-			m_npcs.at(i).update(m_player.getPosition(), m_player.getAngle(), m_player.getSpeed());
+			m_npcs.at(i).update(m_npcs.at(m_closestNpc.at(i)).getPos(), m_player.getAngle(), m_player.getSpeed());
+	}
+}
+
+void Game::calculateClosest()
+{
+	int currentClosest = 0;
+	float closestDistance = 999999999999999999999.f;
+	float currentDistance = 999999999999999999999.f;
+
+	for (int i = 0; i < m_npcs.size(); i++)
+	{
+		currentDistance = 999999999999999999999.f;
+		
+		for (int j = 0; j < m_npcs.size(); j++)
+		{
+			if (i == j)
+				continue;
+			currentDistance = math::distance(m_npcs.at(i).getPos(), m_npcs.at(j).getPos());
+			if (currentDistance < closestDistance)
+			{
+				m_closestNpc.at(i) = j;
+				closestDistance = currentDistance;
+			}
+		}
 	}
 }
 
