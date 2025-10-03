@@ -13,6 +13,8 @@ public:
 	void start(MoveState t_moveType, sf::Vector2f t_position);
 
 	void update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed);
+	void updateGroup(std::vector<sf::Vector2f> t_positions);
+
 
 	void changeMaxMoveSpeed(float t_newMaxMove);
 	void changeMoveSpeed(float t_newMaxMove);

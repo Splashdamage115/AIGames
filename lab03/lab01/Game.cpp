@@ -24,7 +24,7 @@ Game::Game()
 	int Loop = 10;
 	int yoff = 0;
 
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		if (i % Loop == Loop - 1)
 		{
@@ -131,12 +131,26 @@ void Game::update(float t_deltaTime)
 
 	m_player.update();
 
-	calculateClosest();
-
+	//calculateClosest();
+	std::vector<sf::Vector2f> locals;
 	for (unsigned int i = 0; i < m_npcs.size(); i++)
 	{
-		if(m_npcActive.at(i))
-			m_npcs.at(i).update(m_npcs.at(m_closestNpc.at(i)).getPos(), m_player.getAngle(), m_player.getSpeed());
+		if (m_npcActive.at(i))
+		{
+			locals.clear();
+			float maxDistance = 1000.0f;
+			for (unsigned int j = 0; j < m_npcs.size(); j++)
+			{
+				if (i == j) continue;
+
+				float currentDistance = math::distance(m_npcs.at(i).getPos(), m_npcs.at(j).getPos());
+				if (currentDistance < maxDistance)
+				{
+					locals.push_back(m_npcs.at(j).getPos());
+				}
+			}
+			m_npcs.at(i).updateGroup(locals);
+		}
 	}
 }
 

@@ -31,7 +31,7 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 
 	//RenderObject::getInstance().addNewRenderObject(m_cone, 1);
 
-	RenderObject::getInstance().addNewRenderObject(m_line, 1);
+	//RenderObject::getInstance().addNewRenderObject(m_line, 1);
 
 
 	m_position = std::make_shared<sf::Vector2f>();
@@ -39,7 +39,7 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 	m_sprite->setOrigin(sf::Vector2f(m_sprite->getGlobalBounds().size / 2.f));
 	m_sprite->setScale(sf::Vector2f(0.08f, 0.08f));
 	m_sprite->setPosition(t_position);
-	RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
+	//RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
 
 	m_body = std::make_shared<sf::CircleShape>();
 
@@ -90,7 +90,7 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 		break;
 	}
 
-	RenderObject::getInstance().addNewRenderObject(m_stateType, 3);
+	//RenderObject::getInstance().addNewRenderObject(m_stateType, 3);
 	m_moveState->init();
 	m_sprite->setRotation(m_moveState->getAngle());
 }
@@ -149,6 +149,59 @@ void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)
 
 }
 
+void NPC::updateGroup(std::vector<sf::Vector2f> t_positions)
+{
+	m_body->move(m_moveState->moveWithLocal(t_positions));
+	//m_sprite->setRotation(m_moveState->getAngle());
+	//m_body->setPosition(m_sprite->getPosition() + sf::Vector2f(20.0f, 20.0f));
+	//
+	//sf::Vector2f center = m_sprite->getPosition();
+	//
+	//m_line->operator[](0).position = center;
+	//m_line->operator[](1).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
+	//
+	outOfBounds();
+	//m_position->x = m_sprite->getPosition().x;
+	//m_position->y = m_sprite->getPosition().y;
+	//
+	//m_stateType->setPosition(*m_position + sf::Vector2f(30.0f, 30.0f));
+	//
+	//m_cone->operator[](0).position = center;
+	//m_cone->operator[](1).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 20.0f) * 300.0f);
+	//m_cone->operator[](2).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f - 10.0f) * 300.0f);
+	//m_cone->operator[](3).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f) * 300.0f);
+	//m_cone->operator[](4).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 10.0f) * 300.0f);
+	//m_cone->operator[](5).position = center + (math::degreesToDisplacement(m_sprite->getRotation().asDegrees() - 90.0f + 20.0f) * 300.0f);
+	//
+	//sf::ConvexShape tempCone(3);
+	//tempCone.setPoint(0, m_cone->operator[](0).position);
+	//tempCone.setPoint(1, m_cone->operator[](1).position);
+	//tempCone.setPoint(2, m_cone->operator[](5).position);
+	//
+	//sf::FloatRect playerBox;
+	//playerBox.position = t_playerPos;
+	//playerBox.size = sf::Vector2f(10.f, 10.f);
+	//
+	//bool insideCone = math::coneIntersectsBox(tempCone, playerBox);
+	//int corners = 6;
+	//if (insideCone)
+	//{
+	//	m_cone->operator[](0).color = sf::Color(255, 255, 0, 220);
+	//	for (int i = 1; i < corners; i++)
+	//	{
+	//		m_cone->operator[](i).color = sf::Color(255, 255, 0, 60);
+	//	}
+	//}
+	//else
+	//{
+	//	m_cone->operator[](0).color = sf::Color(255, 0, 0, 220);
+	//	for (int i = 1; i < corners; i++)
+	//	{
+	//		m_cone->operator[](i).color = sf::Color(255, 0, 0, 60);
+	//	}
+	//}
+}
+
 void NPC::changeMaxMoveSpeed(float t_newMaxMove)
 {
 	m_moveState->changeMaxSpeed(t_newMaxMove);
@@ -166,23 +219,23 @@ sf::Vector2f NPC::getPos()
 
 void NPC::outOfBounds()
 {
-	sf::Vector2f playerPos = m_sprite->getPosition();
+	sf::Vector2f playerPos = m_body->getPosition();
 	sf::Vector2u screenSize = RenderObject::getInstance().getWindow().getSize();
-	if (playerPos.x < 0.f - m_sprite->getGlobalBounds().size.x)
+	if (playerPos.x < 0.f - m_body->getGlobalBounds().size.x)
 	{
-		m_sprite->setPosition(sf::Vector2f(screenSize.x, playerPos.y));
+		m_body->setPosition(sf::Vector2f(screenSize.x, playerPos.y));
 	}
-	if (playerPos.y < 0.f - m_sprite->getGlobalBounds().size.y)
+	if (playerPos.y < 0.f - m_body->getGlobalBounds().size.y)
 	{
-		m_sprite->setPosition(sf::Vector2f(playerPos.x, screenSize.y));
+		m_body->setPosition(sf::Vector2f(playerPos.x, screenSize.y));
 	}
 	if (playerPos.x > screenSize.x)
 	{
-		m_sprite->setPosition(sf::Vector2f(0.f - m_sprite->getGlobalBounds().size.x, playerPos.y));
+		m_body->setPosition(sf::Vector2f(0.f - m_body->getGlobalBounds().size.x, playerPos.y));
 	}
 	if (playerPos.y > screenSize.y)
 	{
-		m_sprite->setPosition(sf::Vector2f(playerPos.x, 0.f - m_sprite->getGlobalBounds().size.y));
+		m_body->setPosition(sf::Vector2f(playerPos.x, 0.f - m_body->getGlobalBounds().size.y));
 	}
 }
 

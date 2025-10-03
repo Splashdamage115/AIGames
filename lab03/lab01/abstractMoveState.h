@@ -11,6 +11,8 @@ public:
 	virtual void init(){ }
 
 	virtual sf::Vector2f moveVector(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed) = 0;
+	virtual sf::Vector2f moveWithLocal(std::vector<sf::Vector2f> t_others) { return sf::Vector2f(); }
+
 
 	sf::Angle getAngle()
 	{
