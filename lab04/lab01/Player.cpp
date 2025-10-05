@@ -17,9 +17,9 @@ void Player::start()
 
 	m_sprite->setOrigin(sf::Vector2f(m_sprite->getGlobalBounds().size / 2.f));
 	m_sprite->setScale(sf::Vector2f(0.08f, 0.08f));
-	m_sprite->setPosition(sf::Vector2f(100.f, 100.f));
+	m_sprite->setPosition(sf::Vector2f(800.f, 800.f));
 	m_sprite->setRotation(sf::degrees(m_angle + 90.0f));
-	RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
+	//RenderObject::getInstance().addNewRenderObject(m_sprite, 2);
 
 
 	m_body = std::make_shared<sf::CircleShape>();
@@ -29,7 +29,7 @@ void Player::start()
 	m_body->setPosition(m_sprite->getPosition());
 	m_body->setFillColor(sf::Color::White);
 
-	RenderObject::getInstance().addNewRenderObject(m_body, 1);
+	//RenderObject::getInstance().addNewRenderObject(m_body, 1);
 }
 
 void Player::update()

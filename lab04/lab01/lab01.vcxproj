@@ -19,26 +19,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractFormation.cpp" />
     <ClCompile Include="abstractMoveState.cpp" />
     <ClCompile Include="ArriveMoveState.cpp" />
+    <ClCompile Include="FormationMoveState.cpp" />
+    <ClCompile Include="FormationPoint.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PursueMoveState.cpp" />
+    <ClCompile Include="PyramidFormation.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="seekMoveState.cpp" />
     <ClCompile Include="wanderMoveState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractFormation.h" />
     <ClInclude Include="abstractMoveState.h" />
     <ClInclude Include="ArriveMoveState.h" />
+    <ClInclude Include="FormationMoveState.h" />
+    <ClInclude Include="FormationPoint.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PursueMoveState.h" />
+    <ClInclude Include="PyramidFormation.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="seekMoveState.h" />
     <ClInclude Include="wanderMoveState.h" />

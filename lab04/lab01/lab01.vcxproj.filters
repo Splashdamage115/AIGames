@@ -28,6 +28,12 @@
     <Filter Include="Source Files\NPCMoveTypes">
       <UniqueIdentifier>{8b634f5f-e140-4e63-87e3-e6ac64b7f585}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Formation">
+      <UniqueIdentifier>{fb539bf7-0ecd-462d-b6cc-c3e17204ca24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Formation">
+      <UniqueIdentifier>{983b0a50-ccd2-4595-8d39-bbf5d7e74617}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,6 +65,18 @@
     </ClCompile>
     <ClCompile Include="PursueMoveState.cpp">
       <Filter>Source Files\NPCMoveTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="FormationMoveState.cpp">
+      <Filter>Source Files\NPCMoveTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractFormation.cpp">
+      <Filter>Source Files\Formation</Filter>
+    </ClCompile>
+    <ClCompile Include="FormationPoint.cpp">
+      <Filter>Source Files\Formation</Filter>
+    </ClCompile>
+    <ClCompile Include="PyramidFormation.cpp">
+      <Filter>Source Files\Formation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +112,18 @@
     </ClInclude>
     <ClInclude Include="PursueMoveState.h">
       <Filter>Header Files\NPCMoveTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="FormationMoveState.h">
+      <Filter>Header Files\NPCMoveTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFormation.h">
+      <Filter>Header Files\Formation</Filter>
+    </ClInclude>
+    <ClInclude Include="FormationPoint.h">
+      <Filter>Header Files\Formation</Filter>
+    </ClInclude>
+    <ClInclude Include="PyramidFormation.h">
+      <Filter>Header Files\Formation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

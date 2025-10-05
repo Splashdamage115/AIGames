@@ -6,6 +6,7 @@
 #include "seekMoveState.h"
 #include "ArriveMoveState.h"
 #include "PursueMoveState.h"
+#include "FormationMoveState.h"
 
 NPC::NPC()
 {
@@ -13,8 +14,7 @@ NPC::NPC()
 
 void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 {
-	if (!m_texture.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
-	m_sprite = std::make_shared<sf::Sprite>(m_texture);
+	m_sprite = std::make_shared<sf::Sprite>(Game::m_ship);
 
 	m_line = std::make_shared<sf::VertexArray>(sf::PrimitiveType::LineStrip, 2);
 
@@ -29,12 +29,13 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 	
 
 
-	RenderObject::getInstance().addNewRenderObject(m_cone, 1);
+	//RenderObject::getInstance().addNewRenderObject(m_cone, 1);
 
-	RenderObject::getInstance().addNewRenderObject(m_line, 1);
+	//RenderObject::getInstance().addNewRenderObject(m_line, 1);
 
 
 	m_position = std::make_shared<sf::Vector2f>();
+	
 
 	m_sprite->setOrigin(sf::Vector2f(m_sprite->getGlobalBounds().size / 2.f));
 	m_sprite->setScale(sf::Vector2f(0.08f, 0.08f));
@@ -78,6 +79,11 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 		m_moveState = std::make_shared<PursueMoveState>(m_position);
 		m_stateType->setString("Pursue");
 		break;
+	case NPC::MoveState::formation:
+		m_moveState = std::make_shared<FormationMoveState>(m_position);
+		m_formationType = true;
+		m_stateType->setString("Formation");
+		break;
 	default:
 		m_moveState = std::make_shared<wanderMoveState>(m_position);
 		m_stateType->setString("Wander");
@@ -87,6 +93,26 @@ void NPC::start(MoveState t_moveType, sf::Vector2f t_position)
 	RenderObject::getInstance().addNewRenderObject(m_stateType, 3);
 	m_moveState->init();
 	m_sprite->setRotation(m_moveState->getAngle());
+
+	m_position->x = m_sprite->getPosition().x;
+	m_position->y = m_sprite->getPosition().y;
+	m_stateType->setPosition(*m_position + sf::Vector2f(30.0f, 30.0f));
+
+	//if (m_formationType)
+	//{
+	//	std::shared_ptr<FormationMoveState> castPtr = std::dynamic_pointer_cast<FormationMoveState>(m_moveState);
+	//	if (castPtr) {
+	//		//castPtr->getFormationPosition();
+	//	}
+	//	else {
+	//	}
+	//}
+}
+
+void NPC::setAngle(float t_angle)
+{
+	m_sprite->setRotation(sf::degrees(t_angle));
+	m_moveState->setAngle(t_angle);
 }
 
 void NPC::update(sf::Vector2f t_playerPos, float t_playerAngle, float t_speed)

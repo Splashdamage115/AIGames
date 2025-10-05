@@ -20,6 +20,7 @@
 #include <SFML/Audio.hpp>
 #include "Player.h"
 #include "NPC.h"
+#include "AbstractFormation.h"
 
 
 const sf::Color ULTRAMARINE{ 5, 55,242,255 }; // const colour
@@ -33,6 +34,7 @@ public:
 
 	static float deltaTime;
 	static sf::Font m_jerseyFont;
+	static sf::Texture m_ship;
 private:
 
 	void processEvents();
@@ -47,6 +49,10 @@ private:
 	std::vector<bool> m_npcActive;
 
 	std::shared_ptr<sf::Text> m_instructions;
+
+	std::shared_ptr<AbstractFormation> m_formation;
+
+	bool formationActive = false;
 };
 
 #pragma warning( pop ) 

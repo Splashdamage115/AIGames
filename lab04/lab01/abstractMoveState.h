@@ -25,13 +25,14 @@ public:
 	{
 		m_speed = newMax;
 	}
+	void setAngle(float angle) { m_angle = angle - 90.f; }
 protected:
 	void increaseSpeed();
 	void decreaseSpeed();
 	void changeAngle(int t_direction);
 
 	float m_angle = 0.0f;
-	float m_angleChange = 50.0f;
+	float m_angleChange = 180.0f;
 
 	float m_speed = 100.0f;
 	float m_maxSpeed = 300.0f;

@@ -24,10 +24,10 @@ private:
 	sf::Texture m_texture;
 
 	float m_angle = 0.0f;
-	float m_angleChange = 100.0f;
+	float m_angleChange = 30.0f;
 
 	float m_speed = 0.0f;
-	float m_maxSpeed = 500.0f;
-	float m_speedIncreaseFactor = 100.0f;
+	float m_maxSpeed = 200.0f;
+	float m_speedIncreaseFactor = 50.0f;
 };
 
