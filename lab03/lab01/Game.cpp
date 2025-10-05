@@ -24,7 +24,7 @@ Game::Game()
 	int Loop = 10;
 	int yoff = 0;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 50; i++)
 	{
 		if (i % Loop == Loop - 1)
 		{

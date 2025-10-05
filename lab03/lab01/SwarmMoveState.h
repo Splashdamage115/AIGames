@@ -15,9 +15,9 @@ private:
 	sf::Vector2f calcLJ(sf::Vector2f me, sf::Vector2f other);
 
 	// this works, i dont have the patience to find the exact variables
-	float A = 10.f;
-	float B = 500.f;
-	float N = 1.f;
+	float A = 1000.f;
+	float B = 1000.f;
+	float N = 2.f;
 	float M = 4.f;
 };
 
