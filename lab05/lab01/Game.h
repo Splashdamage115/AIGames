@@ -18,6 +18,7 @@
 /// </summary>
 #include "Library.h"
 #include <SFML/Audio.hpp>
+#include "TileManager.h"
 
 class Game
 {
@@ -37,6 +38,7 @@ private:
 	void update(float t_deltaTime);
 
 	std::shared_ptr<sf::Text> m_instructions;
+	TileManager m_tileManager;
 };
 
 #pragma warning( pop ) 

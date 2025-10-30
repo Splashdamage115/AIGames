@@ -22,12 +22,17 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Globals.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="RenderObject.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">

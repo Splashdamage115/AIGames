@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <iostream>
 #include "RenderObject.h"
-#include "PyramidFormation.h"
 
 float Game::deltaTime = 0.f;
 sf::Font Game::m_jerseyFont;
@@ -22,9 +21,11 @@ Game::Game()
 	m_instructions->setCharacterSize(42u);
 	m_instructions->setFillColor(sf::Color(255, 255, 255, 125));
 	m_instructions->setPosition(sf::Vector2f(100.f, 100.f));
-	m_instructions->setString("Basic O_o");
+	m_instructions->setString("");
 
 	RenderObject::getInstance().addNewRenderObject(m_instructions, 0);
+
+	m_tileManager.init();
 }
 
 Game::~Game()
