@@ -1,8 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <vector>
-#include <SFML/Graphics.hpp>
+#include "Library.h"
 
 class RenderObject
 {

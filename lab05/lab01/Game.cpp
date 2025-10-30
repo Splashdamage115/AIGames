@@ -1,15 +1,30 @@
 #include "Game.h"
+#include <ctime>
+#include <cstdlib>
 #include <iostream>
 #include "RenderObject.h"
+#include "PyramidFormation.h"
 
+float Game::deltaTime = 0.f;
+sf::Font Game::m_jerseyFont;
+sf::Texture Game::m_ship;
 
-Game::Game() :
-	m_DELETEexitGame{false} //when true game will exit
+Game::Game()
 {
+
+	if (!m_jerseyFont.openFromFile("ASSETS\\FONTS\\Jersey20-Regular.ttf")) std::cout << "problem loading arial black font" << std::endl;
+	if (!m_ship.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
+
+
 	RenderObject::getInstance().start();
-	setupTexts(); // load font 
-	setupSprites(); // load texture
-	setupAudio(); // load sounds
+	srand(static_cast<unsigned int>(time(nullptr)));
+	m_instructions = std::make_shared<sf::Text>(m_jerseyFont);
+	m_instructions->setCharacterSize(42u);
+	m_instructions->setFillColor(sf::Color(255, 255, 255, 125));
+	m_instructions->setPosition(sf::Vector2f(100.f, 100.f));
+	m_instructions->setString("Basic O_o");
+
+	RenderObject::getInstance().addNewRenderObject(m_instructions, 0);
 }
 
 Game::~Game()
@@ -30,7 +45,7 @@ void Game::run()
 		{
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); // at least 60 fps
-			update(timePerFrame); //60 fps
+			update(timePerFrame.asSeconds()); //60 fps
 		}
 		RenderObject::getInstance().render();
 	}
@@ -40,6 +55,10 @@ void Game::processEvents()
 {
 	while (const std::optional newEvent = RenderObject::getInstance().getWindow().pollEvent())
 	{
+		if (newEvent->is<sf::Event::Closed>())
+		{
+			RenderObject::getInstance().closeWindow();
+		}
 		if (newEvent->is<sf::Event::KeyReleased>() || newEvent->is<sf::Event::KeyPressed>()) //user pressed or released a key
 		{
 			processKeys(newEvent);
@@ -49,6 +68,12 @@ void Game::processEvents()
 
 void Game::processKeys(const std::optional<sf::Event> t_event)
 {
+	if (const auto* keyPressed = t_event->getIf<sf::Event::KeyReleased>())
+	{
+		if (keyPressed->scancode == sf::Keyboard::Scancode::Num1)
+		{
+		}
+	}
 }
 
 void Game::checkKeyboardState()
@@ -59,37 +84,8 @@ void Game::checkKeyboardState()
 	}
 }
 
-void Game::update(sf::Time t_deltaTime)
+void Game::update(float t_deltaTime)
 {
+	Game::deltaTime = t_deltaTime;
 	checkKeyboardState();
-}
-
-void Game::setupTexts()
-{
-	if (!m_jerseyFont.openFromFile("ASSETS\\FONTS\\Jersey20-Regular.ttf"))
-	{
-		std::cout << "problem loading arial black font" << std::endl;
-	}
-	m_DELETEwelcomeMessage.setFont(m_jerseyFont);
-	m_DELETEwelcomeMessage.setString("SFML Game");
-	m_DELETEwelcomeMessage.setPosition(sf::Vector2f{ 205.0f, 240.0f });
-	m_DELETEwelcomeMessage.setCharacterSize(96U);
-	m_DELETEwelcomeMessage.setOutlineColor(sf::Color::Black);
-	m_DELETEwelcomeMessage.setFillColor(sf::Color::Red);
-	m_DELETEwelcomeMessage.setOutlineThickness(2.0f);
-
-}
-
-void Game::setupSprites()
-{
-}
-
-
-void Game::setupAudio()
-{
-	if (!m_DELETEsoundBuffer.loadFromFile("ASSETS\\AUDIO\\beep.wav"))
-	{
-		std::cout << "Error loading beep sound" << std::endl;
-	}
-	m_DELETEsound.play();
 }
