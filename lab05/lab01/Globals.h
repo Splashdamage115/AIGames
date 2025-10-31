@@ -1,4 +1,4 @@
 #pragma once
 
-const int TILE_WIDTH = 20;
-const float TILE_SIZE = 30.0f;
+const int TILE_WIDTH = 50;
+const float TILE_SIZE = 20.0f;

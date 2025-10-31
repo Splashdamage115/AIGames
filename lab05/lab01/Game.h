@@ -19,6 +19,7 @@
 #include "Library.h"
 #include <SFML/Audio.hpp>
 #include "TileManager.h"
+#include "NPC.h"
 
 class Game
 {
@@ -30,6 +31,7 @@ public:
 	static float deltaTime;
 	static sf::Font m_jerseyFont;
 	static sf::Texture m_ship;
+	static sf::Vector2i mousePosition;
 private:
 
 	void processEvents();
@@ -39,6 +41,10 @@ private:
 
 	std::shared_ptr<sf::Text> m_instructions;
 	TileManager m_tileManager;
+	std::vector<NPC> m_npcs;
+
+	bool integration = true;
+	bool cost = true;
 };
 
 #pragma warning( pop ) 
