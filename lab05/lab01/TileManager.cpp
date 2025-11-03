@@ -4,16 +4,15 @@
 
 void TileManager::init()
 {
-	m_tiles.emplace_back();
 	for (int x = 0; x < TILE_WIDTH; x++)
 	{
+		m_tiles.emplace_back();
 		for (int y = 0; y < TILE_WIDTH; y++)
 		{
 			std::shared_ptr<Tile> newTile = std::make_shared<Tile>();
 			newTile->init(sf::Vector2i(x, y));
 			m_tiles.at(x).emplace_back(newTile);
 		}
-		m_tiles.emplace_back();
 	}
 	m_currentType = setType::obstacle;
 }
@@ -24,11 +23,11 @@ void TileManager::mouseClicked()
 
 	
 
-	if (tileClicked.x > m_tiles.size() || tileClicked.x < 0)
+	if (tileClicked.x >= m_tiles.size() || tileClicked.x < 0)
 	{
 		return;
 	}
-	if (tileClicked.y > m_tiles.at(tileClicked.x).size() || tileClicked.y < 0)
+	if (tileClicked.y >= m_tiles.at(tileClicked.x).size() || tileClicked.y < 0)
 	{
 		return;
 	}
@@ -44,7 +43,7 @@ void TileManager::mouseClicked()
 		break;
 	case TileManager::setType::start:
 
-		if (tileClicked.x > TILE_WIDTH || tileClicked.x < 0 || tileClicked.y > TILE_WIDTH || tileClicked.y < 0)
+		if (tileClicked.x >= TILE_WIDTH || tileClicked.x < 0 || tileClicked.y >= TILE_WIDTH || tileClicked.y < 0)
 			return;
 
 		if(traversed){
