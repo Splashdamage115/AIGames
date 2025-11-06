@@ -9,6 +9,7 @@ float Game::deltaTime = 0.f;
 sf::Font Game::m_jerseyFont;
 sf::Texture Game::m_ship;
 sf::Vector2i Game::mousePosition = { 0,0 };
+bool Game::playerOneTurn = false;
 
 Game::Game()
 {
@@ -26,10 +27,12 @@ Game::Game()
 	m_instructions->setOutlineThickness(1u);
 
 
-	m_instructions->setPosition(sf::Vector2f(100.f, 100.f));
-	m_instructions->setString("Select Beginning");
+	m_instructions->setPosition(sf::Vector2f(30.f, 30.f));
+	m_instructions->setString("Place First");
 
 	RenderObject::getInstance().addNewRenderObject(m_instructions, 7);
+
+	m_tileManager.Start();
 }
 
 Game::~Game()

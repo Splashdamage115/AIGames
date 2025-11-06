@@ -18,6 +18,7 @@
 /// </summary>
 #include "Library.h"
 #include <SFML/Audio.hpp>
+#include "Tile.h"
 
 class Game
 {
@@ -30,6 +31,8 @@ public:
 	static sf::Font m_jerseyFont;
 	static sf::Texture m_ship;
 	static sf::Vector2i mousePosition;
+
+	static bool playerOneTurn;
 private:
 
 	void processEvents();
@@ -38,9 +41,7 @@ private:
 	void update(float t_deltaTime);
 
 	std::shared_ptr<sf::Text> m_instructions;
-
-	bool integration = true;
-	bool cost = true;
+	TileManager m_tileManager;
 };
 
 #pragma warning( pop ) 
