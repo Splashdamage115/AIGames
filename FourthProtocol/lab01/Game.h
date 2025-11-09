@@ -19,13 +19,29 @@
 #include "Library.h"
 #include <SFML/Audio.hpp>
 #include "Tile.h"
+#include "CharacterSelection.h"
 
 class Game
 {
 public:
-	Game();
-	~Game();
+	enum class GameState
+	{
+		place, move
+	};
+
+	static Game& getInstance()
+	{
+		static Game instance;
+		return instance;
+	}
+
+	// DELETE FUNCTIONS TO AVOID MORE INSTANCES
+	Game(Game const&) = delete;
+	void operator=(Game const&) = delete;
+
 	void run();
+	void PlacedTile();
+	void changeGameState(GameState t_gameState);
 
 	static float deltaTime;
 	static sf::Font m_jerseyFont;
@@ -33,7 +49,9 @@ public:
 	static sf::Vector2i mousePosition;
 
 	static bool playerOneTurn;
+	static TileItem selectedItem;
 private:
+	Game();
 
 	void processEvents();
 	void processKeys(const std::optional<sf::Event> t_event);
@@ -42,6 +60,9 @@ private:
 
 	std::shared_ptr<sf::Text> m_instructions;
 	TileManager m_tileManager;
+	CharacterSelection m_charSelect;
+
+	GameState currentGamestate;
 };
 
 #pragma warning( pop ) 

@@ -28,8 +28,7 @@
 /// <returns>success or failure</returns>
 int main()
 {
-	Game game;
-	game.run();
+	Game::getInstance().run();
 
 	
 		

@@ -10,6 +10,7 @@ sf::Font Game::m_jerseyFont;
 sf::Texture Game::m_ship;
 sf::Vector2i Game::mousePosition = { 0,0 };
 bool Game::playerOneTurn = false;
+TileItem Game::selectedItem = TileItem::none;
 
 Game::Game()
 {
@@ -33,10 +34,7 @@ Game::Game()
 	RenderObject::getInstance().addNewRenderObject(m_instructions, 7);
 
 	m_tileManager.Start();
-}
-
-Game::~Game()
-{
+	m_charSelect.Start();
 }
 
 void Game::run()
@@ -56,6 +54,31 @@ void Game::run()
 			update(timePerFrame.asSeconds()); //60 fps
 		}
 		RenderObject::getInstance().render();
+	}
+}
+
+void Game::PlacedTile()
+{
+	selectedItem = TileItem::none;
+	//playerOneTurn = !playerOneTurn;
+
+	m_charSelect.ChangedItem();
+}
+
+void Game::changeGameState(GameState t_gameState)
+{
+	currentGamestate = t_gameState;
+
+	switch (t_gameState)
+	{
+	case Game::GameState::place:
+
+		break;
+	case Game::GameState::move:
+		m_tileManager.moveGameState();
+		break;
+	default:
+		break;
 	}
 }
 
