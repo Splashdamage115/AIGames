@@ -11,6 +11,7 @@ void RenderObject::closeWindow()
 
 void RenderObject::start()
 {
+	m_layers.clear();
 	m_layers.emplace_back();
 }
 

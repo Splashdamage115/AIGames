@@ -12,26 +12,46 @@ sf::Vector2i Game::mousePosition = { 0,0 };
 bool Game::playerOneTurn = false;
 TileItem Game::selectedItem = TileItem::none;
 
+void Game::GameOver()
+{
+	gameOverState = true;
+	(winner == Player::One) ? playerWins+=1 : enemyWins+=1;
+	std::string winnerString = "\n\nGAME OVER\n\nPRESS SPACE\nTO RESTART\n\n\n";
+	winnerString += (winner == Player::One) ? "Player 1 wins" : "Player 2 wins";
+	m_instructions->setString(winnerString);
+}
+
 Game::Game()
 {
+	srand(static_cast<unsigned int>(time(nullptr)));
+
+	restartGame();
 
 	if (!m_jerseyFont.openFromFile("ASSETS\\FONTS\\Jersey20-Regular.ttf")) std::cout << "problem loading arial black font" << std::endl;
 	if (!m_ship.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
 
 
-	RenderObject::getInstance().start();
-	srand(static_cast<unsigned int>(time(nullptr)));
 	m_instructions = std::make_shared<sf::Text>(m_jerseyFont);
 	m_instructions->setCharacterSize(42u);
 	m_instructions->setFillColor(sf::Color(255, 255, 255, 215));
 	m_instructions->setOutlineColor(sf::Color(0, 0, 0, 255));
 	m_instructions->setOutlineThickness(1u);
-
-
 	m_instructions->setPosition(sf::Vector2f(30.f, 30.f));
-	m_instructions->setString("Place First");
-
+	m_instructions->setString("\n\nPlace the Characters\nThen click your \ncharacters to move\nthem around\n\n\n\nEach character has\nunique moves\nclick on a character\nand it will highlight\ntheir moves\n\n\n\n\nTry to beat the AI!");
 	RenderObject::getInstance().addNewRenderObject(m_instructions, 7);
+}
+
+void Game::restartGame()
+{
+	m_tileManager = TileManager();
+	m_charSelect = CharacterSelection();
+
+	currentGamestate = GameState::place;
+	playerOneTurn = false;
+	selectedItem = TileItem::none;
+	gameOverState = false;
+
+	RenderObject::getInstance().start();
 
 	m_tileManager.Start();
 	m_charSelect.Start();
@@ -135,6 +155,19 @@ void Game::update(float t_deltaTime)
 {
 	Game::deltaTime = t_deltaTime;
 	checkKeyboardState();
+
+	if (gameOverState)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::Space))
+		{
+			restartGame();
+			RenderObject::getInstance().addNewRenderObject(m_instructions, 7);
+			std::string winnerAmt = "Player Wins : " + std::to_string(playerWins / 2);
+			winnerAmt += "\nEnemy Wins : " + std::to_string(enemyWins / 2);
+
+			m_instructions->setString(winnerAmt);
+		}
+	}
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) 
 	{

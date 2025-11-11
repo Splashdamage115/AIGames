@@ -29,7 +29,7 @@ void CharacterSelection::Start()
 
 	for (int i = 0; i < 5; i++)
 	{
-		m_selectionTiles.at(i).initBody(true);
+		m_selectionTiles.at(i).initBody(Player::One);
 	}
 
 	Update::append([this]() {this->Update(); });
@@ -55,7 +55,6 @@ void CharacterSelection::Update()
 void CharacterSelection::ChangedItem()
 {
 	if (m_selectedTile == -1) return;
-	m_selectionTiles.at(m_selectedTile).tileItem = TileItem::none;
-	m_selectionTiles.at(m_selectedTile).initBody(true);
+	m_selectionTiles.at(m_selectedTile).clearBody();
 	m_selectedTile = -1;
 }

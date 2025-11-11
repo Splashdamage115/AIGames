@@ -9,12 +9,13 @@ enum class TileItem
 
 enum class Player
 {
-	One, Two
+	One, Two, none
 };
 
 struct Tile
 {
-	void initBody(bool t_player);
+	void initBody(Player owner);
+	void clearBody();
 
 	std::shared_ptr<sf::RectangleShape> rect;
 	std::shared_ptr<sf::Sprite> centerBody;
@@ -31,6 +32,11 @@ public:
 
 	void Start();
 	void Update();
+
+	void checkWinState();
+	void gameOver(Player winner);
+
+	bool gameOverCheck = false;
 
 	static sf::Texture FrogTexture;
 	static sf::Texture SnakeTexture;
@@ -50,6 +56,8 @@ private:
 	bool m_moveGameState = false;
 
 	int selectedTile = 0;
+
+	Player winner = Player::none;
 };
 
 static sf::Texture& getTexture(TileItem textureType)

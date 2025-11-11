@@ -24,6 +24,8 @@
 class Game
 {
 public:
+	void restartGame();
+
 	enum class GameState
 	{
 		place, move
@@ -50,6 +52,13 @@ public:
 
 	static bool playerOneTurn;
 	static TileItem selectedItem;
+
+	void GameOver();
+
+	Player winner;
+
+	int playerWins = 0;
+	int enemyWins = 0;
 private:
 	Game();
 
@@ -63,6 +72,8 @@ private:
 	CharacterSelection m_charSelect;
 
 	GameState currentGamestate;
+
+	bool gameOverState = false;
 };
 
 #pragma warning( pop ) 

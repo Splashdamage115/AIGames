@@ -29,9 +29,6 @@
 int main()
 {
 	Game::getInstance().run();
-
-	
-		
 	
 	return EXIT_SUCCESS; // 0
 }
