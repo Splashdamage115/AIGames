@@ -526,6 +526,16 @@ void TileManager::findTraversable(std::vector<int>& t_tile, std::vector<bool>& t
 		t_tile.emplace_back(t_pos + TILES_SIZE);
 		t_tile.emplace_back(t_pos + TILES_SIZE - 1);
 		t_tile.emplace_back(t_pos + TILES_SIZE + 1);
+
+		// Hops
+		t_tile.emplace_back(t_pos - 2);
+		t_tile.emplace_back(t_pos + 2);
+		t_tile.emplace_back(t_pos - (TILES_SIZE * 2));
+		t_tile.emplace_back(t_pos - (TILES_SIZE * 2) - 2);
+		t_tile.emplace_back(t_pos - (TILES_SIZE * 2) + 2);
+		t_tile.emplace_back(t_pos + (TILES_SIZE * 2));
+		t_tile.emplace_back(t_pos + (TILES_SIZE * 2) - 2);
+		t_tile.emplace_back(t_pos + (TILES_SIZE * 2) + 2);
 		break;
 	case TileItem::Snake:
 		t_tile.emplace_back(t_pos - 1);
@@ -555,14 +565,92 @@ void TileManager::findTraversable(std::vector<int>& t_tile, std::vector<bool>& t
 			continue;
 		}
 
+		if (m_tiles.at(t_tile.at(i)).occupied)
+		{
+			t_traversable.emplace_back(false);
+			continue;
+		}
+
 		int srcX = t_pos % TILES_SIZE;
 		int srcY = t_pos / TILES_SIZE;
 		int candX = t_tile.at(i) % TILES_SIZE;
 		int candY = t_tile.at(i) / TILES_SIZE;
 
-		if (std::abs(srcX - candX) > 1 || std::abs(srcY - candY) > 1)
+		if (std::abs(srcX - candX) > 2 || std::abs(srcY - candY) > 2)
 		{
 			t_traversable.emplace_back(false);
+			continue;
+		}
+
+		if (std::abs(srcX - candX) == 2 || std::abs(srcY - candY) == 2)
+		{
+
+			if (t_tile.at(i) == t_pos - 2)
+			{
+				if (!m_tiles.at(t_pos - 1).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos + 2)
+			{
+				if (!m_tiles.at(t_pos + 1).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos - (TILES_SIZE * 2))
+			{
+				if (!m_tiles.at(t_pos - TILES_SIZE).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos - (TILES_SIZE * 2) - 2)
+			{
+				if (!m_tiles.at(t_pos - (TILES_SIZE) - 1).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos - (TILES_SIZE * 2) + 2)
+			{
+				if (!m_tiles.at(t_pos - (TILES_SIZE) + 1).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos + (TILES_SIZE * 2))
+			{
+				if (!m_tiles.at(t_pos + (TILES_SIZE)).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos + (TILES_SIZE * 2) - 2)
+			{
+				if (!m_tiles.at(t_pos + (TILES_SIZE) - 1).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+			if (t_tile.at(i) == t_pos + (TILES_SIZE * 2) + 2)
+			{
+				if (!m_tiles.at(t_pos + (TILES_SIZE) + 1).occupied)
+				{
+					t_traversable.emplace_back(false);
+					continue;
+				}
+			}
+
+			t_traversable.emplace_back(true);
 			continue;
 		}
 
@@ -598,12 +686,6 @@ void TileManager::findTraversable(std::vector<int>& t_tile, std::vector<bool>& t
 				t_traversable.emplace_back(false);
 				continue;
 			}
-		}
-
-		if (m_tiles.at(t_tile.at(i)).occupied)
-		{
-			t_traversable.emplace_back(false);
-			continue;
 		}
 
 		t_traversable.emplace_back(true);
@@ -647,4 +729,5 @@ void Tile::clearBody()
 	occupied = false;
 	enemyOccupied = false;
 	tileItem = TileItem::none;
+	player = Player::none;
 }
