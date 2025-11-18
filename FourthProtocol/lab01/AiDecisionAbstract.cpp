@@ -19,9 +19,6 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 	int currentHeurustic = 0;
 
 	std::vector<Tile> tempBoard = tiles;
-	//do {
-	//	chosenSpot = rand() % (TILES_SIZE * TILES_SIZE);
-	//} while (tiles.at(chosenSpot).occupied);
 
 	for (int i = 0; i < TILES_SIZE * TILES_SIZE; i++)
 	{
@@ -29,12 +26,8 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 
 		tempBoard = tiles;
 		tempBoard.at(i).enemyOccupied = true;
-		Player winner = t_winFunction(tempBoard);
 
-		if (winner != Player::Two)
-			currentHeurustic = calculateHeurusticValue(tempBoard);
-		else
-			currentHeurustic = 1000000;
+		currentHeurustic = calculateHeurusticValue(tempBoard, t_winFunction);
 
 		//std::cout << "Board position : " << i << " cost is : " << currentHeurustic << "\n";
 
@@ -68,8 +61,11 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 	return place;
 }
 
-int AiDecisionAbstract::calculateHeurusticValue(std::vector<Tile>& proposedState)
+int AiDecisionAbstract::calculateHeurusticValue(std::vector<Tile>& proposedState, std::function<Player(std::vector<Tile>&)> t_winFunction)
 {
+	// if the next move allows the AI to win, make that move (stop calculating), as it is the most valuable
+	if (t_winFunction(proposedState) == Player::Two) return INT_MAX;
+
 	int amtOfNpc = 5 - (AmtPlaceable - 1);
 	int value = 1000;
 
@@ -86,6 +82,8 @@ int AiDecisionAbstract::calculateHeurusticValue(std::vector<Tile>& proposedState
 			// further distance decreases value more
 			value -= distance(sf::Vector2f(proposedState.at(i).position.x, proposedState.at(i).position.y), sf::Vector2f(proposedState.at(j).position.x, proposedState.at(j).position.y));
 		}
+		// prefer positions around center of board, 
+		// this is as it is better to play near the center to begin with
 		int distanceToCenter = distance(sf::Vector2f(proposedState.at(i).position.x, proposedState.at(i).position.y), sf::Vector2f(2.f, 2.f));
 		value -= distanceToCenter; // prefer central positions
 	}

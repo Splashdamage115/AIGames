@@ -36,7 +36,7 @@ public:
 		std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
 		std::function<Player (std::vector<Tile>& )> t_winFunction);
 private:
-	int calculateHeurusticValue(std::vector<Tile>& proposedState);
+	int calculateHeurusticValue(std::vector<Tile>& proposedState, std::function<Player(std::vector<Tile>&)> t_winFunction);
 
 	std::vector<bool> m_availableItems;
 	int AmtPlaceable = 5;

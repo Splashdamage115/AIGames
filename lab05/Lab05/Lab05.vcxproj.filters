@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\FONTS">
+      <UniqueIdentifier>{b5e82806-bf9b-4fdf-b17c-c35282c021a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\IMAGES">
+      <UniqueIdentifier>{1d793ccc-0d22-4eea-8d0e-c5b5a5270a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GamePlay">
+      <UniqueIdentifier>{65949192-fffc-43be-9dc2-6e8f8bdd2dc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GamePlay">
+      <UniqueIdentifier>{4e9ca844-09bb-4aae-aebd-9dcaf270810e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\DATA">
+      <UniqueIdentifier>{6d288318-334a-41e0-bb56-7d6e8de66979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\DATA\SETTINGS">
+      <UniqueIdentifier>{0e26071c-71b4-4e37-a6ad-a530652d282e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\YAML_PARSER">
+      <UniqueIdentifier>{b7114d13-99ca-4c0d-b632-c526ca100284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Not Current">
+      <UniqueIdentifier>{2cfa6325-ae5c-4969-8f1a-62ad2fac0f1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Not Current">
+      <UniqueIdentifier>{aeeb1ca4-6dce-490f-b39b-46d3a38be800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Not Current\Settings">
+      <UniqueIdentifier>{b879bb24-0d83-408d-8ec7-aca045d28cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Not Current\Menu">
+      <UniqueIdentifier>{684b270c-c27e-486d-8b62-2a6aabb8b4c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Not Current\Gloabals">
+      <UniqueIdentifier>{bef91be7-b8e0-4a25-bd00-d2f7acf6a557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Not Current\GameMode">
+      <UniqueIdentifier>{03a70ba0-9373-438a-a4d4-d0f517a6dfea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Not Current\GameMode">
+      <UniqueIdentifier>{8261a9e5-ac90-4c09-a0b6-6e80efed8958}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Not Current\Settings">
+      <UniqueIdentifier>{4aad8521-c031-456b-8c39-d9b44fd5d4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Not Current\Globals">
+      <UniqueIdentifier>{cc817173-0297-42e7-a8ed-8d15299dcdc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Not Current\Menu">
+      <UniqueIdentifier>{45a9bb18-667e-449e-bbe6-1188361c0abe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>Source Files\Not Current\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files\Not Current\Gloabals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files\Not Current\Gloabals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderObject.cpp">
+      <Filter>Source Files\Not Current\Gloabals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameMode.cpp">
+      <Filter>Source Files\Not Current\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>Source Files\Not Current\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Settings.cpp">
+      <Filter>Source Files\Not Current\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\YamlLoader.cpp">
+      <Filter>Source Files\Not Current\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePlay.cpp">
+      <Filter>Source Files\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AnimatedSprite.cpp">
+      <Filter>Source Files\Not Current\Gloabals</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GameMode.h">
+      <Filter>Header Files\Not Current\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Menu.h">
+      <Filter>Header Files\Not Current\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Button.h">
+      <Filter>Header Files\Not Current\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DEBUG.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GlobalFontStorage.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RenderObject.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Settings.h">
+      <Filter>Header Files\Not Current\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SettingsStorage.h">
+      <Filter>Header Files\Not Current\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YamlLoader.h">
+      <Filter>Header Files\Not Current\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SimpleButton.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GamePlay.h">
+      <Filter>Header Files\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\anchor.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\binary.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\dll.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\emitfromevents.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\emitter.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\emitterdef.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\emittermanip.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\emitterstyle.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\eventhandler.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\exceptions.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\mark.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\noncopyable.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\null.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\ostream_wrapper.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\parser.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\stlemitter.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\traits.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\yaml.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\contrib\anchordict.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\contrib\graphbuilder.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\convert.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\emit.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\impl.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\iterator.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\node.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\parse.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\ptr.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\type.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\bool_type.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\impl.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\iterator.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\iterator_fwd.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\memory.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\node.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\node_data.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\node_iterator.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yaml-cpp\node\detail\node_ref.h">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simpleMaths.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Library.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AnimatedSprite.h">
+      <Filter>Header Files\Not Current\Globals</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ASSETS\IMAGES\Buttons\rotate_button.png">
+      <Filter>Resource Files\IMAGES</Filter>
+    </Image>
+    <Image Include="ASSETS\IMAGES\Buttons\SlideButton.png">
+      <Filter>Resource Files\IMAGES</Filter>
+    </Image>
+    <Image Include="ASSETS\IMAGES\GlobalTextures\Mouse.png">
+      <Filter>Resource Files\IMAGES</Filter>
+    </Image>
+    <Image Include="ASSETS\IMAGES\Misc\SFML-LOGO.png">
+      <Filter>Resource Files\IMAGES</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ASSETS\FONTS\PixelSans.ttf">
+      <Filter>Resource Files\FONTS</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ASSETS\FONTS\License.txt">
+      <Filter>Resource Files\FONTS</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ASSETS\DATA\SETTINGS\settings.yaml">
+      <Filter>Resource Files\DATA\SETTINGS</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\libyaml-cppmdd.lib">
+      <Filter>Resource Files\YAML_PARSER</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
