@@ -41,15 +41,16 @@ void TileManager::Start()
 
 			Tile newTile;
 			newTile.rect = tile;
+			newTile.position = sf::Vector2i(x, y);
 
 			m_tiles.push_back(newTile);
 		}
 	}
 
-	Update::append([this]() { this->Update(); });
+	m_decision = std::make_shared<AiDecisionAbstract>();
+	m_decision->init();
 
-	for (int i = 0; i < 5; i++)
-		m_availableItems.emplace_back(true);
+	Update::append([this]() { this->Update(); });
 }
 
 void TileManager::Update()
@@ -98,7 +99,8 @@ void TileManager::Update()
 	}
 }
 
-void TileManager::checkWinState()
+// returns the player that wins
+Player TileManager::checkWinState(std::vector<Tile> & t_tiles)
 {
 	int foundAmtPlayer = 0;
 	int foundAmtEnemy = 0;
@@ -106,7 +108,7 @@ void TileManager::checkWinState()
 
 	for (int i = 0; i < TILES_SIZE * TILES_SIZE; i++)
 	{
-		if (m_tiles.at(i).occupied)
+		if (t_tiles.at(i).occupied)
 		{
 			// cover wrap around
 			if (i % TILES_SIZE == 0)
@@ -114,7 +116,7 @@ void TileManager::checkWinState()
 				foundAmtPlayer = 0;
 				foundAmtEnemy = 0;
 			}
-			if (m_tiles.at(i).player == Player::One)
+			if (t_tiles.at(i).player == Player::One)
 			{
 				foundAmtPlayer++;
 				foundAmtEnemy = 0;
@@ -123,15 +125,15 @@ void TileManager::checkWinState()
 				// CHECK LEFT / RIGHT
 				for (int v = i; v < TILES_SIZE * TILES_SIZE; v += TILES_SIZE)
 				{
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::One)
+						if (t_tiles.at(v).player == Player::One)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::One);
+								return Player::One;
 							}
 							continue;
 						}
@@ -142,15 +144,15 @@ void TileManager::checkWinState()
 
 				for (int v = i; v >= 0; v -= TILES_SIZE)
 				{
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::One)
+						if (t_tiles.at(v).player == Player::One)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::One);
+								return Player::One;
 							}
 							continue;
 						}
@@ -167,15 +169,15 @@ void TileManager::checkWinState()
 						if (v != 0 && v != 1)
 							break;
 					}
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::One)
+						if (t_tiles.at(v).player == Player::One)
 						{
 							horizontalCheck++;
 							
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::One);
+								return Player::One;
 							}
 							continue;
 						}
@@ -191,15 +193,15 @@ void TileManager::checkWinState()
 						if(v != 0 && v != 1)
 							break;
 					}
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::One)
+						if (t_tiles.at(v).player == Player::One)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::One);
+								return Player::One;
 							}
 							continue;
 						}
@@ -209,7 +211,7 @@ void TileManager::checkWinState()
 
 				if (foundAmtPlayer == 4)
 				{
-					gameOver(Player::One);
+					return Player::One;
 				}
 
 				continue;
@@ -221,7 +223,7 @@ void TileManager::checkWinState()
 
 
 
-			if (m_tiles.at(i).player == Player::Two)
+			if (t_tiles.at(i).player == Player::Two)
 			{
 				foundAmtEnemy++;
 				foundAmtPlayer = 0;
@@ -230,15 +232,15 @@ void TileManager::checkWinState()
 				// CHECK LEFT / RIGHT
 				for (int v = i; v < TILES_SIZE * TILES_SIZE; v += TILES_SIZE)
 				{
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::Two)
+						if (t_tiles.at(v).player == Player::Two)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::Two);
+								return Player::Two;
 							}
 							continue;
 						}
@@ -249,15 +251,15 @@ void TileManager::checkWinState()
 
 				for (int v = i; v >= 0; v -= TILES_SIZE)
 				{
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::Two)
+						if (t_tiles.at(v).player == Player::Two)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::Two);
+								return Player::Two;
 							}
 							continue;
 						}
@@ -274,15 +276,15 @@ void TileManager::checkWinState()
 						if (v != 0 && v != 1)
 							break;
 					}
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::Two)
+						if (t_tiles.at(v).player == Player::Two)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::Two);
+								return Player::Two;
 							}
 							continue;
 						}
@@ -298,15 +300,15 @@ void TileManager::checkWinState()
 						if (v != 0 && v != 1)
 							break;
 					}
-					if (m_tiles.at(v).occupied)
+					if (t_tiles.at(v).occupied)
 					{
-						if (m_tiles.at(v).player == Player::Two)
+						if (t_tiles.at(v).player == Player::Two)
 						{
 							horizontalCheck++;
 
 							if (horizontalCheck == 4)
 							{
-								gameOver(Player::Two);
+								return Player::Two;
 							}
 							continue;
 						}
@@ -316,7 +318,7 @@ void TileManager::checkWinState()
 
 				if (foundAmtEnemy == 4)
 				{
-					gameOver(Player::Two);
+					return Player::Two;
 				}
 
 				continue;
@@ -329,6 +331,7 @@ void TileManager::checkWinState()
 		foundAmtPlayer = 0;
 		foundAmtEnemy = 0;
 	}
+	return Player::none;
 }
 
 void TileManager::gameOver(Player t_winner)
@@ -348,45 +351,31 @@ void TileManager::PlaceTiles(int t_pos)
 		m_tiles.at(t_pos).enemyOccupied = (!Game::playerOneTurn) ? false : true;
 		m_tiles.at(t_pos).initBody(Player::One);
 
-		checkWinState();
+		
+		Player winningPlayer = checkWinState(m_tiles);
+		if (winningPlayer != Player::none) gameOver(winningPlayer);
 
 		Game::getInstance().PlacedTile();
 
 		// HANDLE THE AI HERE
-		int chosenSpot = 0;
-		do {
-			chosenSpot = rand() % (TILES_SIZE * TILES_SIZE);
-		} while (m_tiles.at(chosenSpot).occupied);
 
-		int chosenItem = 0;
-		do {
-			chosenItem = rand() % 5;
-		} while (!m_availableItems.at(chosenItem));
+		auto t = m_decision->DecidePlacement(m_tiles, [this](std::vector<Tile>& t_tiles) { return this->checkWinState(t_tiles); });
 
-		m_availableItems.at(chosenItem) = false;
+		// handle actual placement
+		m_tiles.at(t.placementPosition).tileItem = t.placementType;
+		m_tiles.at(t.placementPosition).enemyOccupied = (!Game::playerOneTurn) ? false : true;
+		m_tiles.at(t.placementPosition).initBody(Player::Two);
 
-		TileItem item = TileItem::Donkey;
-		if (chosenItem == 0) item = TileItem::Frog;
-		if (chosenItem == 1) item = TileItem::Snake;
-		
-		m_tiles.at(chosenSpot).tileItem = item;
-		m_tiles.at(chosenSpot).enemyOccupied = (!Game::playerOneTurn) ? false : true;
-		m_tiles.at(chosenSpot).initBody(Player::Two);
-
-		bool nextGameState = true;
-
-		for (int i = 0; i < m_availableItems.size(); i++)
-		{
-			if (m_availableItems.at(i))
-				nextGameState = false;
-		}
+		// handle next move
+		bool nextGameState = t.allPlaced;
 
 		if (nextGameState)
 		{
 			Game::getInstance().changeGameState(Game::GameState::move);
 		}
 
-		checkWinState();
+		winningPlayer = checkWinState(m_tiles);
+		if (winningPlayer != Player::none) gameOver(winningPlayer);
 	}
 }
 
@@ -418,6 +407,7 @@ void TileManager::moveItems(int t_pos)
 	}
 	else
 	{
+		// moving Player token
 		bool moved = false;
 		for (int i = 0; i < m_selectable.size(); i++)
 		{
@@ -432,79 +422,30 @@ void TileManager::moveItems(int t_pos)
 				m_tiles.at(selectedTile).clearBody();
 				moved = true;
 
-				checkWinState();
+				Player winningPlayer = checkWinState(m_tiles);
+				if (winningPlayer != Player::none) gameOver(winningPlayer);
 
 				break;
 			}
 		}
 		if (moved)
 		{
-			int foundAmt = 0;
-			int skips = rand() % 5;
-			for (int i = 0; i < m_tiles.size(); i++)
-			{
-				if (m_tiles.at(i).tileItem == TileItem::none) continue;
-				if (!m_tiles.at(i).enemyOccupied) continue;
+			// moving ai token
+			auto AiMove = m_decision->DecideMovement(m_tiles, [this](std::vector<int>& a, std::vector<bool>& b, int c) { this->findTraversable(a, b, c); }, [this](std::vector<Tile>& t_tiles) { return this->checkWinState(t_tiles); });
 
-				if (foundAmt == skips)
-				{
-					std::vector<int> moveTiles;
-					std::vector<bool> checkable;
-					findTraversable(moveTiles, checkable, i);
+			m_tiles.at(AiMove.destination).tileItem = m_tiles.at(AiMove.currentPos).tileItem;
+			m_tiles.at(AiMove.destination).enemyOccupied = true;
+			m_tiles.at(AiMove.destination).initBody(Player::Two);
 
-					int traversableAmt = 0;
-					for (int j = 0; j < moveTiles.size(); j++)
-					{
-						if(checkable.at(j))
-							traversableAmt++;
-					}
+			m_tiles.at(AiMove.currentPos).clearBody();
+			moved = false;
 
-					if (traversableAmt == 0)
-					{
-						i = 0;
-						foundAmt = 0;
-						skips = rand() % 5;
-						continue;
-					}
+			m_selectable.clear();
+			selectedTile = -1;
 
-					int selected = rand() % traversableAmt;
-					int chosenIndex = -1;
-					int passed = 0;
+			Player winningPlayer = checkWinState(m_tiles);
+			if (winningPlayer != Player::none) gameOver(winningPlayer);
 
-					for (int j = 0; j < moveTiles.size(); j++)
-					{
-						if (checkable.at(j))
-						{
-							if (passed == selected)
-							{
-								chosenIndex = j;
-								break;
-							}
-							else
-								passed++;
-						}
-					}
-					int destTile = moveTiles.at(chosenIndex);
-
-					m_tiles.at(destTile).tileItem = m_tiles.at(i).tileItem;
-					m_tiles.at(destTile).enemyOccupied = true;
-					m_tiles.at(destTile).initBody(Player::Two);
-
-					m_tiles.at(i).clearBody();
-					moved = false;
-
-					m_selectable.clear();
-					selectedTile = -1;
-
-					checkWinState();
-
-					return;
-				}
-				else
-				{
-					foundAmt++;
-				}
-			}
 			moved = false;
 		}
 	}

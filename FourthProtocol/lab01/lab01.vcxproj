@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AiDecisionAbstract.cpp" />
     <ClCompile Include="CharacterSelection.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="RenderObject.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AiDecisionAbstract.h" />
     <ClInclude Include="CharacterSelection.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />

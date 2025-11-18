@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Library.h"
+#include "AiDecisionAbstract.h"
 
 enum class TileItem
 {
@@ -23,6 +24,7 @@ struct Tile
 	Player player;
 	bool occupied = false;
 	bool enemyOccupied = false;
+	sf::Vector2i position;
 };
 
 class TileManager
@@ -33,7 +35,7 @@ public:
 	void Start();
 	void Update();
 
-	void checkWinState();
+	Player checkWinState(std::vector<Tile>& t_tiles);
 	void gameOver(Player winner);
 
 	bool gameOverCheck = false;
@@ -46,12 +48,12 @@ private:
 	void moveItems(int t_pos);
 	void findTraversable(std::vector<int>& t_tile, std::vector<bool>& t_traversable, int t_pos);
 
+	std::shared_ptr<AiDecisionAbstract> m_decision;
+
 	std::vector<Tile> m_tiles;
 	std::vector<int>m_selectable;
 
 	sf::Vector2f m_startPositionOffset = { 700.0f,50.0f };
-
-	std::vector<bool> m_availableItems;
 
 	bool m_moveGameState = false;
 
