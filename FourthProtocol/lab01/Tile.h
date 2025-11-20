@@ -20,6 +20,7 @@ struct Tile
 
 	std::shared_ptr<sf::RectangleShape> rect;
 	std::shared_ptr<sf::Sprite> centerBody;
+	std::shared_ptr<sf::Text> tilePlaceValue;
 	TileItem tileItem;
 	Player player;
 	bool occupied = false;

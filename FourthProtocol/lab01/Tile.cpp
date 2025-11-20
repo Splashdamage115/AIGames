@@ -42,6 +42,10 @@ void TileManager::Start()
 			Tile newTile;
 			newTile.rect = tile;
 			newTile.position = sf::Vector2i(x, y);
+			newTile.tilePlaceValue = std::make_shared<sf::Text>(Game::m_jerseyFont);
+			newTile.tilePlaceValue->setPosition(newTile.rect->getPosition());
+			newTile.tilePlaceValue->setCharacterSize(24u);
+			RenderObject::getInstance().addNewRenderObject(newTile.tilePlaceValue, 4);
 
 			m_tiles.push_back(newTile);
 		}

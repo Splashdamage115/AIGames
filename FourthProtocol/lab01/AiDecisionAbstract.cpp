@@ -26,8 +26,25 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 
 		tempBoard = tiles;
 		tempBoard.at(i).enemyOccupied = true;
+		tempBoard.at(i).occupied = true;
+		tempBoard.at(i).player = Player::Two;
 
-		currentHeurustic = calculateHeurusticValue(tempBoard, t_winFunction);
+		currentHeurustic = calculateHeurusticValue(tempBoard, t_winFunction, Player::Two);
+
+		Player p = t_winFunction(tempBoard);
+		switch (p)
+		{
+		case Player::One:
+			std::cout << "player One to win\n";
+			break;
+		case Player::Two:
+			std::cout << "player Two to win\n";
+			break;
+		case Player::none:
+			break;
+		default:
+			break;
+		}
 
 		//std::cout << "Board position : " << i << " cost is : " << currentHeurustic << "\n";
 
@@ -36,6 +53,7 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 			bestPosition = i;
 			highestHeurusticValue = currentHeurustic;
 		}
+		tiles.at(i).tilePlaceValue->setString(std::to_string(currentHeurustic));
 	}
 	chosenSpot = bestPosition;
 
@@ -61,26 +79,52 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 	return place;
 }
 
-int AiDecisionAbstract::calculateHeurusticValue(std::vector<Tile>& proposedState, std::function<Player(std::vector<Tile>&)> t_winFunction)
+int AiDecisionAbstract::calculateHeurusticValue(std::vector<Tile>& proposedState, std::function<Player(std::vector<Tile>&)> t_winFunction, Player winnerEval)
 {
 	// if the next move allows the AI to win, make that move (stop calculating), as it is the most valuable
-	if (t_winFunction(proposedState) == Player::Two) return INT_MAX;
+	if (t_winFunction(proposedState) == winnerEval) return 999999999;
 
 	int amtOfNpc = 5 - (AmtPlaceable - 1);
 	int value = 1000;
+	int countInLine = 0;
 
 	for (int i = 0; i < TILES_SIZE * TILES_SIZE; i++)
 	{
-		if (!proposedState.at(i).enemyOccupied) continue;
+		if (!(proposedState.at(i).player == winnerEval)) continue;
 
 		for (int j = 0; j < TILES_SIZE * TILES_SIZE; j++)
 		{
 			if (i == j) continue;
+			if (!(proposedState.at(j).player == winnerEval)) continue;
 		
-			if (!proposedState.at(j).enemyOccupied) continue;
-		
-			// further distance decreases value more
-			value -= distance(sf::Vector2f(proposedState.at(i).position.x, proposedState.at(i).position.y), sf::Vector2f(proposedState.at(j).position.x, proposedState.at(j).position.y));
+			// further distance between objects decreases value more
+			int distanceVal = distance(sf::Vector2f(proposedState.at(i).position.x, proposedState.at(i).position.y), sf::Vector2f(proposedState.at(j).position.x, proposedState.at(j).position.y));
+			value -= static_cast<int>(static_cast<float>(distanceVal) * 0.5f); // decrease weight of clumping
+
+			// check if in a line, increase its value (decrease clumping, increase amount of objects in a line)
+			if (i == j - 1)
+			{
+				countInLine++;
+				if ((j - 2) > 0)
+				if ((proposedState.at(j - 2).player == winnerEval))
+					countInLine += 10;
+			}
+			if (i == j - TILES_SIZE)
+			{
+				countInLine++;
+				int pos = (j - (TILES_SIZE * 2));
+				if(pos > 0)
+					if (proposedState.at(pos).player == winnerEval)
+						countInLine += 10;
+			}
+			if (i == j - TILES_SIZE - 1)
+			{
+				countInLine++;
+				int pos = (j - (TILES_SIZE * 2) - 2);
+				if (pos > 0)
+					if (proposedState.at(pos).player == winnerEval)
+						countInLine += 10;
+			}
 		}
 		// prefer positions around center of board, 
 		// this is as it is better to play near the center to begin with
@@ -88,28 +132,36 @@ int AiDecisionAbstract::calculateHeurusticValue(std::vector<Tile>& proposedState
 		value -= distanceToCenter; // prefer central positions
 	}
 
-
+	value = increaseValue(value, countInLine);
 
 	return value;
 }
 
-MovementType AiDecisionAbstract::DecideMovement(std::vector<Tile>& tiles, 
-	std::function<void(std::vector<int>& , std::vector<bool>&, int)> t_movementFunction,
-	std::function<Player(std::vector<Tile>&)> t_winFunction)
+int AiDecisionAbstract::calculateDepth(std::vector<std::vector<std::vector<Tile>>>& boardStates,
+												std::vector<std::vector<MovementType>>& moves,
+												std::function<Player(std::vector<Tile>&)> t_winFunction,
+												std::vector<Tile>& tiles,
+												std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
+												int depth, int MinMax)
 {
-	MovementType t;
+	boardStates.emplace_back();
+	moves.emplace_back();
+	Player player;
+	if (depth % 2 == 0) player = Player::One;
+	else player = Player::Two;
 
-	int foundAmt = 0;
-	int skips = rand() % 5;
-	int chosenTile = 0;
+	int valueExtent = 0;
+	int furthestVal = 0;
+	bool firstPass = false;
+
 	for (int i = 0; i < tiles.size(); i++)
 	{
 		if (tiles.at(i).tileItem == TileItem::none) continue;
-		if (!tiles.at(i).enemyOccupied) continue;
+		if (tiles.at(i).player == Player::none) continue;
+		if (tiles.at(i).player != player) continue;
 
-		if (foundAmt == skips)
+		for (int boardDepthX = 0; boardDepthX < boardStates.at(depth - 1).size(); boardDepthX++)
 		{
-			chosenTile = i;
 			std::vector<int> moveTiles;
 			std::vector<bool> checkable;
 			t_movementFunction(moveTiles, checkable, i);
@@ -124,43 +176,82 @@ MovementType AiDecisionAbstract::DecideMovement(std::vector<Tile>& tiles,
 			// error handling if current character has no potential moves
 			if (traversableAmt == 0)
 			{
-				i = 0;
-				foundAmt = 0;
-				skips = rand() % 5;
 				continue;
 			}
 
-			// select a move randomly
-			int selected = rand() % traversableAmt;
-			int chosenIndex = -1;
-			int passed = 0;
-
-			for (int j = 0; j < moveTiles.size(); j++)
+			for (int t = 0; t < moveTiles.size(); t++)
 			{
-				if (checkable.at(j))
+				if (checkable.at(t))
 				{
-					if (passed == selected)
+					std::vector<Tile> tempBoard = boardStates.at(depth - 1).at(boardDepthX);
+					MovementType move;
+					move.currentPos = i;
+					move.destination = moveTiles.at(t);
+					moves.at(depth - 1).emplace_back(move);
+					tempBoard.at(moveTiles.at(t)).tileItem = tempBoard.at(i).tileItem;
+					tempBoard.at(moveTiles.at(t)).enemyOccupied = true;
+					tempBoard.at(moveTiles.at(t)).initBody(player);
+					boardStates.at(depth).emplace_back(tempBoard);
+
+					// calculate highest heurustic for this depth
+					int currentVal = calculateHeurusticValue(boardStates.at(depth).at(boardStates.at(depth).size() - 1), t_winFunction, player);
+					moves.at(depth - 1).at(moves.at(depth - 1).size() - 1).value = currentVal;
+
+					if (firstPass) valueExtent = currentVal;
+					firstPass = false;
+
+					if (player == Player::One)
 					{
-						chosenIndex = j;
-						break;
+						if (currentVal < furthestVal)
+						{
+
+						}
 					}
-					else
-					{ 
-						passed++;
+					else if (player == Player::Two)
+					{
+						if (currentVal > furthestVal)
+						{
+
+						}
 					}
 				}
 			}
 
-			t.destination = moveTiles.at(chosenIndex);
-			t.currentPos = i;
-			break;
-		}
-		else
-		{
-			foundAmt++;
+
 		}
 	}
 
 
-	return t;
+
+	return -1;
+}
+
+int AiDecisionAbstract::increaseValue(int val, int lineAmt)
+{
+	return val + 50 * lineAmt;
+}
+
+MovementType AiDecisionAbstract::DecideMovement(std::vector<Tile>& tiles, 
+	std::function<void(std::vector<int>& , std::vector<bool>&, int)> t_movementFunction,
+	std::function<Player(std::vector<Tile>&)> t_winFunction)
+{
+	int maxDepth = 4;
+
+
+	std::vector<std::vector<std::vector<Tile>>> boardStates;
+	std::vector<std::vector<MovementType>> moves;
+	boardStates.emplace_back();
+	boardStates.at(0).emplace_back();
+	boardStates.at(0).at(0) = tiles;
+	int minMax = 0;
+
+	for (int depth = 1; depth < maxDepth; depth++)
+	{
+		minMax = calculateDepth(boardStates, moves, t_winFunction, tiles, t_movementFunction, depth, minMax);
+	}
+
+	// calculate min max here:
+
+
+	return moves.at(0).at(0);
 }
