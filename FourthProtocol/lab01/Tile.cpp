@@ -644,7 +644,14 @@ void Tile::initBody(Player owner)
 		clearBody();
 		return;
 	}
-	centerBody = std::make_shared<sf::Sprite>(getTexture(tileItem));
+	try
+	{
+		centerBody = std::make_shared<sf::Sprite>(getTexture(tileItem));
+	}
+	catch (int error)
+	{
+		return;
+	}
 
 	centerBody->setPosition(rect->getPosition());
 	centerBody->setScale(sf::Vector2f(3.f, 3.f));
