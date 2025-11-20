@@ -142,7 +142,7 @@ int AiDecisionAbstract::calculateDepth(std::vector<std::vector<std::vector<Tile>
 												std::function<Player(std::vector<Tile>&)> t_winFunction,
 												std::vector<Tile>& tiles,
 												std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
-												int depth, int MinMax)
+												int depth, int minMax)
 {
 	boardStates.emplace_back();
 	moves.emplace_back();
@@ -204,14 +204,22 @@ int AiDecisionAbstract::calculateDepth(std::vector<std::vector<std::vector<Tile>
 					{
 						if (currentVal < furthestVal)
 						{
-
+							if (minMax > currentVal)
+							{
+								return currentVal;
+							}
+							furthestVal = currentVal;
 						}
 					}
 					else if (player == Player::Two)
 					{
 						if (currentVal > furthestVal)
 						{
-
+							if (minMax < currentVal)
+							{
+								return currentVal;
+							}
+							furthestVal = currentVal;
 						}
 					}
 				}
@@ -223,7 +231,7 @@ int AiDecisionAbstract::calculateDepth(std::vector<std::vector<std::vector<Tile>
 
 
 
-	return -1;
+	return furthestVal;
 }
 
 int AiDecisionAbstract::increaseValue(int val, int lineAmt)
