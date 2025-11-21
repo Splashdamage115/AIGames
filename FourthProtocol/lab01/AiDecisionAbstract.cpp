@@ -1,7 +1,6 @@
 #include "AiDecisionAbstract.h"
 #include "Tile.h"
-#include <algorithm> // For std::max, std::min
-#include <iostream>  // For std::cout
+#include <algorithm> 
 
 void AiDecisionAbstract::init()
 {
@@ -51,7 +50,6 @@ PlacementType AiDecisionAbstract::DecidePlacement(std::vector<Tile>& tiles,
 		}
 		else
 		{
-			// Reset to AI player and calculate normal heuristic
 			tempBoard.at(i).player = Player::Two;
 			currentHeurustic = calculateHeurusticValue(tempBoard, t_winFunction, Player::Two);
 		}
@@ -299,7 +297,7 @@ MovementType AiDecisionAbstract::DecideMovement(std::vector<Tile>& tiles,
 	std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
 	std::function<Player(std::vector<Tile>&)> t_winFunction)
 {
-	int maxDepth = 4;
+	int maxDepth = 8;
 
 	std::vector<std::vector<std::vector<Tile>>> boardStates;
 	std::vector<std::vector<MovementType>> moves;
