@@ -29,13 +29,13 @@ static float distance(sf::Vector2f t_pos1, sf::Vector2f t_pos2)
 class AiDecisionAbstract
 {
 public:
-	void init();
-	PlacementType DecidePlacement(std::vector<Tile>& tiles,
-		std::function<Player(std::vector<Tile>&)> t_winFunction);
+void init();
+PlacementType DecidePlacement(std::vector<Tile>& tiles,
+std::function<Player(std::vector<Tile>&)> t_winFunction);
 
-	MovementType DecideMovement(std::vector<Tile>& tiles, 
-		std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
-		std::function<Player (std::vector<Tile>& )> t_winFunction);
+MovementType DecideMovement(std::vector<Tile>& tiles, 
+std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
+std::function<Player (std::vector<Tile>& )> t_winFunction);
 
 int calculateDepth(std::vector<std::vector<std::vector<Tile>>>& boardStates,
 std::vector<std::vector<MovementType>>& moves,
@@ -44,9 +44,10 @@ std::vector<Tile>& tiles,
 std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction,
 int depth, int alpha, int beta);
 private:
-	int calculateHeurusticValue(std::vector<Tile>& proposedState, std::function<Player(std::vector<Tile>&)> t_winFunction, Player winnerEval);
-	int increaseValue(int val, int lineAmt);
+int calculateHeurusticValue(std::vector<Tile>& proposedState, std::function<Player(std::vector<Tile>&)> t_winFunction, Player winnerEval);
+int increaseValue(int val, int lineAmt);
+bool detectTwoInARowThreat(std::vector<Tile>& tiles, Player targetPlayer, int blockPosition);
 
-	std::vector<bool> m_availableItems;
-	int AmtPlaceable = 5;
+std::vector<bool> m_availableItems;
+int AmtPlaceable = 5;
 };

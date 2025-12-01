@@ -639,7 +639,7 @@ void TileManager::findTraversable(std::vector<int>& t_tile, std::vector<bool>& t
 
 void Tile::initBody(Player owner)
 {
-	if (tileItem == TileItem::none)
+	if (tileItem != TileItem::Donkey && tileItem != TileItem::Snake && tileItem != TileItem::Frog)
 	{
 		clearBody();
 		return;
