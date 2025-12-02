@@ -24,6 +24,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SetAIPlayButton.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
@@ -35,6 +36,7 @@
     <ClInclude Include="Library.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="RenderObject.h" />
+    <ClInclude Include="SetAIPlayButton.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>

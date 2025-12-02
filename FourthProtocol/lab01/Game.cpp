@@ -11,6 +11,11 @@ sf::Texture Game::m_ship;
 sf::Vector2i Game::mousePosition = { 0,0 };
 bool Game::playerOneTurn = false;
 TileItem Game::selectedItem = TileItem::none;
+bool Game::aiEnabled = false;
+
+float Game::aiMoveDelay = 0.5f;
+float Game::aiMoveTimer = 0.0f;
+bool Game::aiWaitingToMove = false;
 
 void Game::GameOver()
 {
@@ -55,6 +60,7 @@ void Game::restartGame()
 
 	m_tileManager.Start();
 	m_charSelect.Start();
+	aiPlayButton.Init();
 }
 
 void Game::run()
@@ -153,26 +159,37 @@ void Game::checkKeyboardState()
 
 void Game::update(float t_deltaTime)
 {
-	Game::deltaTime = t_deltaTime;
-	checkKeyboardState();
+Game::deltaTime = t_deltaTime;
+checkKeyboardState();
 
-	if (gameOverState)
-	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::Space))
-		{
-			restartGame();
-			RenderObject::getInstance().addNewRenderObject(m_instructions, 7);
-			std::string winnerAmt = "Player Wins : " + std::to_string(playerWins / 2);
-			winnerAmt += "\nEnemy Wins : " + std::to_string(enemyWins / 2);
+// Update AI timing
+if (aiWaitingToMove)
+{
+aiMoveTimer += t_deltaTime;
+if (aiMoveTimer >= aiMoveDelay)
+{
+aiWaitingToMove = false;
+aiMoveTimer = 0.0f;
+}
+}
 
-			m_instructions->setString(winnerAmt);
-		}
-	}
+if (gameOverState)
+{
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::Space))
+{
+restartGame();
+RenderObject::getInstance().addNewRenderObject(m_instructions, 7);
+std::string winnerAmt = "Player Wins : " + std::to_string(playerWins / 2);
+winnerAmt += "\nEnemy Wins : " + std::to_string(enemyWins / 2);
 
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) 
-	{
+m_instructions->setString(winnerAmt);
+}
+}
 
-	}
+if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) 
+{
 
-	Update::update();
+}
+
+Update::update();
 }

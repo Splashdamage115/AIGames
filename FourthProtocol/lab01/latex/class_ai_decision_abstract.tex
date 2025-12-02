@@ -1,0 +1,76 @@
+\doxysection{Ai\+Decision\+Abstract Class Reference}
+\hypertarget{class_ai_decision_abstract}{}\label{class_ai_decision_abstract}\index{AiDecisionAbstract@{AiDecisionAbstract}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ai_decision_abstract_aa4905249af1498fafa1bebdd03df46b0}{init}} (Player t\+\_\+player)
+\begin{DoxyCompactList}\small\item\em Initialise basic data for the ai. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_placement_type}{Placement\+Type}} \mbox{\hyperlink{class_ai_decision_abstract_a304f7b337c67e345e2e9175be38fae5c}{Decide\+Placement}} (std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&tiles, std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$ t\+\_\+win\+Function)
+\begin{DoxyCompactList}\small\item\em AI decides where to place tokens. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_movement_type}{Movement\+Type}} \mbox{\hyperlink{class_ai_decision_abstract_a536fc6056ace0190e156c441c8c347c2}{Decide\+Movement}} (std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&tiles, std\+::function$<$ void(std\+::vector$<$ int $>$ \&, std\+::vector$<$ bool $>$ \&, int)$>$ t\+\_\+movement\+Function, std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$ t\+\_\+win\+Function)
+\begin{DoxyCompactList}\small\item\em AI decides where to move tokens. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ai_decision_abstract_a419dfd6d68902e281e1b6263ac5d1629}{calculate\+Depth}} (std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ $>$ $>$ \&board\+States, std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{struct_movement_type}{Movement\+Type}} $>$ $>$ \&moves, std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$ t\+\_\+win\+Function, std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&tiles, std\+::function$<$ void(std\+::vector$<$ int $>$ \&, std\+::vector$<$ bool $>$ \&, int)$>$ t\+\_\+movement\+Function, int depth, int alpha, int beta)
+\begin{DoxyCompactList}\small\item\em This is no longer used. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ai_decision_abstract_a5c47f88213c07160a7487bc570c21c3c}{Minimax\+AB}} (std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&board\+State, int depth, int alpha, int beta, bool is\+Maximizing\+Player, std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$ t\+\_\+win\+Function, std\+::function$<$ void(std\+::vector$<$ int $>$ \&, std\+::vector$<$ bool $>$ \&, int)$>$ t\+\_\+movement\+Function)
+\begin{DoxyCompactList}\small\item\em Alpha beta pruning between minimax. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_ai_decision_abstract_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ai_decision_abstract_a419dfd6d68902e281e1b6263ac5d1629}\index{AiDecisionAbstract@{AiDecisionAbstract}!calculateDepth@{calculateDepth}}
+\index{calculateDepth@{calculateDepth}!AiDecisionAbstract@{AiDecisionAbstract}}
+\doxysubsubsection{\texorpdfstring{calculateDepth()}{calculateDepth()}}
+{\footnotesize\ttfamily \label{class_ai_decision_abstract_a419dfd6d68902e281e1b6263ac5d1629} 
+int Ai\+Decision\+Abstract\+::calculate\+Depth (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ $>$ $>$ \&}]{board\+States}{, }\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{struct_movement_type}{Movement\+Type}} $>$ $>$ \&}]{moves}{, }\item[{std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$}]{t\+\_\+win\+Function}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&}]{tiles}{, }\item[{std\+::function$<$ void(std\+::vector$<$ int $>$ \&, std\+::vector$<$ bool $>$ \&, int)$>$}]{t\+\_\+movement\+Function}{, }\item[{int}]{depth}{, }\item[{int}]{alpha}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})}
+
+
+
+This is no longer used. 
+
+used to calculate the alpha beta without recursive calls \Hypertarget{class_ai_decision_abstract_a536fc6056ace0190e156c441c8c347c2}\index{AiDecisionAbstract@{AiDecisionAbstract}!DecideMovement@{DecideMovement}}
+\index{DecideMovement@{DecideMovement}!AiDecisionAbstract@{AiDecisionAbstract}}
+\doxysubsubsection{\texorpdfstring{DecideMovement()}{DecideMovement()}}
+{\footnotesize\ttfamily \label{class_ai_decision_abstract_a536fc6056ace0190e156c441c8c347c2} 
+\mbox{\hyperlink{struct_movement_type}{Movement\+Type}} Ai\+Decision\+Abstract\+::\+Decide\+Movement (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&}]{tiles}{, }\item[{std\+::function$<$ void(std\+::vector$<$ int $>$ \&, std\+::vector$<$ bool $>$ \&, int)$>$}]{t\+\_\+movement\+Function}{, }\item[{std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$}]{t\+\_\+win\+Function}{}\end{DoxyParamCaption})}
+
+
+
+AI decides where to move tokens. 
+
+Uses mini max to move the tokens to the best position calculates minimax, finds best move of mini max finds corresponding move and plays it \Hypertarget{class_ai_decision_abstract_a304f7b337c67e345e2e9175be38fae5c}\index{AiDecisionAbstract@{AiDecisionAbstract}!DecidePlacement@{DecidePlacement}}
+\index{DecidePlacement@{DecidePlacement}!AiDecisionAbstract@{AiDecisionAbstract}}
+\doxysubsubsection{\texorpdfstring{DecidePlacement()}{DecidePlacement()}}
+{\footnotesize\ttfamily \label{class_ai_decision_abstract_a304f7b337c67e345e2e9175be38fae5c} 
+\mbox{\hyperlink{struct_placement_type}{Placement\+Type}} Ai\+Decision\+Abstract\+::\+Decide\+Placement (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&}]{tiles}{, }\item[{std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$}]{t\+\_\+win\+Function}{}\end{DoxyParamCaption})}
+
+
+
+AI decides where to place tokens. 
+
+Take the current board state and win function (for checking if a play is a win) and loop through every potential play, and check if there is a winner, or if a block is necessary or if the ai has to block, if it has to block it will check if a three in a row is present (block an enemy win) or if a 2 in a row is present block that (future win if not near edge of board) otherwise it checks its heurustic and plays the best move \Hypertarget{class_ai_decision_abstract_aa4905249af1498fafa1bebdd03df46b0}\index{AiDecisionAbstract@{AiDecisionAbstract}!init@{init}}
+\index{init@{init}!AiDecisionAbstract@{AiDecisionAbstract}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_ai_decision_abstract_aa4905249af1498fafa1bebdd03df46b0} 
+void Ai\+Decision\+Abstract\+::init (\begin{DoxyParamCaption}\item[{Player}]{t\+\_\+player}{}\end{DoxyParamCaption})}
+
+
+
+Initialise basic data for the ai. 
+
+Set the player and initilise the available items array \Hypertarget{class_ai_decision_abstract_a5c47f88213c07160a7487bc570c21c3c}\index{AiDecisionAbstract@{AiDecisionAbstract}!MinimaxAB@{MinimaxAB}}
+\index{MinimaxAB@{MinimaxAB}!AiDecisionAbstract@{AiDecisionAbstract}}
+\doxysubsubsection{\texorpdfstring{MinimaxAB()}{MinimaxAB()}}
+{\footnotesize\ttfamily \label{class_ai_decision_abstract_a5c47f88213c07160a7487bc570c21c3c} 
+int Ai\+Decision\+Abstract\+::\+Minimax\+AB (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&}]{board\+State}{, }\item[{int}]{depth}{, }\item[{int}]{alpha}{, }\item[{int}]{beta}{, }\item[{bool}]{is\+Maximizing\+Player}{, }\item[{std\+::function$<$ Player(std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&)$>$}]{t\+\_\+win\+Function}{, }\item[{std\+::function$<$ void(std\+::vector$<$ int $>$ \&, std\+::vector$<$ bool $>$ \&, int)$>$}]{t\+\_\+movement\+Function}{}\end{DoxyParamCaption})}
+
+
+
+Alpha beta pruning between minimax. 
+
+standard implementation of minimax, prune irrelevant branches return the best move 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ai\+Decision\+Abstract.\+h\item 
+Ai\+Decision\+Abstract.\+cpp\end{DoxyCompactItemize}

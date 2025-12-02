@@ -20,6 +20,7 @@
 #include <SFML/Audio.hpp>
 #include "Tile.h"
 #include "CharacterSelection.h"
+#include "SetAIPlayButton.h"
 
 class Game
 {
@@ -53,14 +54,22 @@ public:
 	static bool playerOneTurn;
 	static TileItem selectedItem;
 
-	void GameOver();
+static bool aiEnabled;
 
-	Player winner;
+void GameOver();
 
-	int playerWins = 0;
-	int enemyWins = 0;
+Player winner;
+
+int playerWins = 0;
+int enemyWins = 0;
+
+// AI timing control
+static float aiMoveDelay;
+static float aiMoveTimer;
+static bool aiWaitingToMove;
+
 private:
-	Game();
+Game();
 
 	void processEvents();
 	void processKeys(const std::optional<sf::Event> t_event);
@@ -74,8 +83,9 @@ private:
 	GameState currentGamestate;
 
 	bool gameOverState = false;
+
+	SetAIPlayButton aiPlayButton;
 };
 
 #pragma warning( pop ) 
 #endif // !GAME_HPP
-

@@ -45,8 +45,13 @@ void CharacterSelection::Update()
 			{
 				if (m_selectionTiles.at(i).tileItem == TileItem::none) continue;
 
+				m_selectionTiles.at(i).rect->setFillColor(sf::Color(255, 255, 255, 60));
 				Game::selectedItem = m_selectionTiles.at(i).tileItem;
 				m_selectedTile = i;
+			}
+			else
+			{
+				m_selectionTiles.at(i).rect->setFillColor(sf::Color::Transparent);
 			}
 		}
 	}

@@ -45,6 +45,9 @@
     <ClCompile Include="AiDecisionAbstract.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SetAIPlayButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AiDecisionAbstract.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetAIPlayButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

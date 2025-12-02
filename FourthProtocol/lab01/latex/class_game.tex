@@ -1,0 +1,105 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+author Pete Lowe May 2025 you need to change the above line or lose marks Also don\textquotesingle{}t have any member properties called Delete...  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_a7f57a7a8408e554d0a72882c287e1d04}\label{class_game_a7f57a7a8408e554d0a72882c287e1d04} 
+enum class {\bfseries Game\+State} \{ {\bfseries place}
+, {\bfseries move}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_a20d30146064ee53ccd099ba920f23b20}\label{class_game_a20d30146064ee53ccd099ba920f23b20} 
+void {\bfseries restart\+Game} ()
+\item 
+\Hypertarget{class_game_a586a831ed5ff1283fcf1b96f4eff065c}\label{class_game_a586a831ed5ff1283fcf1b96f4eff065c} 
+{\bfseries Game} (\mbox{\hyperlink{class_game}{Game}} const \&)=delete
+\item 
+\Hypertarget{class_game_aa4c0eacd8656e54ec4e94877c453e531}\label{class_game_aa4c0eacd8656e54ec4e94877c453e531} 
+void {\bfseries operator=} (\mbox{\hyperlink{class_game}{Game}} const \&)=delete
+\item 
+\Hypertarget{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}\label{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa} 
+void {\bfseries run} ()
+\item 
+\Hypertarget{class_game_a2d188c587e88058b51953c745b7822ad}\label{class_game_a2d188c587e88058b51953c745b7822ad} 
+void {\bfseries Placed\+Tile} ()
+\item 
+\Hypertarget{class_game_a295babd00513e096e445955ce4829bdc}\label{class_game_a295babd00513e096e445955ce4829bdc} 
+void {\bfseries change\+Game\+State} (Game\+State t\+\_\+game\+State)
+\item 
+\Hypertarget{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}\label{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2} 
+void {\bfseries Game\+Over} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_a2933df060e48bfcdd214f8eafb09b023}\label{class_game_a2933df060e48bfcdd214f8eafb09b023} 
+static \mbox{\hyperlink{class_game}{Game}} \& {\bfseries get\+Instance} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_a590df81200f797fd5bef8c5968a2ea1b}\label{class_game_a590df81200f797fd5bef8c5968a2ea1b} 
+Player {\bfseries winner}
+\item 
+\Hypertarget{class_game_aab004b075303223b7f35cd83f9e57a70}\label{class_game_aab004b075303223b7f35cd83f9e57a70} 
+int {\bfseries player\+Wins} = 0
+\item 
+\Hypertarget{class_game_a76126459d528a7beb65263bfd612d8d0}\label{class_game_a76126459d528a7beb65263bfd612d8d0} 
+int {\bfseries enemy\+Wins} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_ad918e31c1644966465f822d912585f16}\label{class_game_ad918e31c1644966465f822d912585f16} 
+static float {\bfseries delta\+Time} = 0.f
+\item 
+\Hypertarget{class_game_a853939dbd7545ae9dd5efc844482d3b0}\label{class_game_a853939dbd7545ae9dd5efc844482d3b0} 
+static sf\+::\+Font {\bfseries m\+\_\+jersey\+Font}
+\item 
+\Hypertarget{class_game_a2074c94aaa9398c6099cf554a8ca1345}\label{class_game_a2074c94aaa9398c6099cf554a8ca1345} 
+static sf\+::\+Texture {\bfseries m\+\_\+ship}
+\item 
+\Hypertarget{class_game_a68828ecf9cf012b63cc7c771a1e31458}\label{class_game_a68828ecf9cf012b63cc7c771a1e31458} 
+static sf\+::\+Vector2i {\bfseries mouse\+Position} = \{ 0,0 \}
+\item 
+\Hypertarget{class_game_ae28b0e66538b9db0235c4786fd52af35}\label{class_game_ae28b0e66538b9db0235c4786fd52af35} 
+static bool {\bfseries player\+One\+Turn} = false
+\item 
+\Hypertarget{class_game_aa4a21f200969e8217544b4b28a2a48d5}\label{class_game_aa4a21f200969e8217544b4b28a2a48d5} 
+static Tile\+Item {\bfseries selected\+Item} = Tile\+Item\+::none
+\item 
+\Hypertarget{class_game_a5c6ac56e91e4343fc30b4b177f9d333d}\label{class_game_a5c6ac56e91e4343fc30b4b177f9d333d} 
+static bool {\bfseries ai\+Enabled} = false
+\item 
+\Hypertarget{class_game_a60c8f0a5bb023247532a465f16722469}\label{class_game_a60c8f0a5bb023247532a465f16722469} 
+static float {\bfseries ai\+Move\+Delay} = 0.\+5f
+\item 
+\Hypertarget{class_game_ad289e579d269b7ca3ecc668653f83de6}\label{class_game_ad289e579d269b7ca3ecc668653f83de6} 
+static float {\bfseries ai\+Move\+Timer} = 0.\+0f
+\item 
+\Hypertarget{class_game_af5382e8ffe4dd3a7b87f53649f044bbf}\label{class_game_af5382e8ffe4dd3a7b87f53649f044bbf} 
+static bool {\bfseries ai\+Waiting\+To\+Move} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+author Pete Lowe May 2025 you need to change the above line or lose marks Also don\textquotesingle{}t have any member properties called Delete... 
+
+include guards used so we don\textquotesingle{}t process this file twice same as \#pragma once Don\textquotesingle{}t forget the \#endif at the bottom 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game.\+h\item 
+Game.\+cpp\end{DoxyCompactItemize}

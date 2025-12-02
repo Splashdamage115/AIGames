@@ -1,0 +1,69 @@
+\doxysection{Ai\+Decision\+Abstract.\+h}
+\hypertarget{_ai_decision_abstract_8h_source}{}\label{_ai_decision_abstract_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Library.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{struct_tile}{Tile}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}\ TileItem;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{enum\ class}\ Player;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_placement_type}{PlacementType}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ placementPosition\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ TileItem\ placementType;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ allPlaced\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_movement_type}{MovementType}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ currentPos\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ destination\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ value\ =\ -\/100;}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ distance(sf::Vector2f\ t\_pos1,\ sf::Vector2f\ t\_pos2)}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt((t\_pos1.x\ -\/\ t\_pos2.x)\ *\ (t\_pos1.x\ -\/\ t\_pos2.x)\ +\ (t\_pos1.y\ -\/\ t\_pos2.y)\ *\ (t\_pos1.y\ -\/\ t\_pos2.y));}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ai_decision_abstract}{AiDecisionAbstract}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ai_decision_abstract_aa4905249af1498fafa1bebdd03df46b0}{init}}(Player\ t\_player);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct_placement_type}{PlacementType}}\ \mbox{\hyperlink{class_ai_decision_abstract_a304f7b337c67e345e2e9175be38fae5c}{DecidePlacement}}(std::vector<Tile>\&\ tiles,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::function<Player(std::vector<Tile>\&)>\ t\_winFunction);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{struct_movement_type}{MovementType}}\ \mbox{\hyperlink{class_ai_decision_abstract_a536fc6056ace0190e156c441c8c347c2}{DecideMovement}}(std::vector<Tile>\&\ tiles,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(std::vector<int>\&,\ std::vector<bool>\&,\ \textcolor{keywordtype}{int})>\ t\_movementFunction,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::function<Player(std::vector<Tile>\&)>\ t\_winFunction);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_ai_decision_abstract_a419dfd6d68902e281e1b6263ac5d1629}{calculateDepth}}(std::vector<std::vector<std::vector<Tile>>>\&\ boardStates,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::vector<std::vector<MovementType>>\&\ moves,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::function<Player(std::vector<Tile>\&)>\ t\_winFunction,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::vector<Tile>\&\ tiles,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(std::vector<int>\&,\ std::vector<bool>\&,\ \textcolor{keywordtype}{int})>\ t\_movementFunction,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ depth,\ \textcolor{keywordtype}{int}\ alpha,\ \textcolor{keywordtype}{int}\ beta);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_ai_decision_abstract_a5c47f88213c07160a7487bc570c21c3c}{MinimaxAB}}(std::vector<Tile>\&\ boardState,\ \textcolor{keywordtype}{int}\ depth,\ \textcolor{keywordtype}{int}\ alpha,\ \textcolor{keywordtype}{int}\ beta,\ \textcolor{keywordtype}{bool}\ isMaximizingPlayer,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ std::function<Player(std::vector<Tile>\&)>\ t\_winFunction,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(std::vector<int>\&,\ std::vector<bool>\&,\ \textcolor{keywordtype}{int})>\ t\_movementFunction);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ calculateHeurusticValue(std::vector<Tile>\&\ proposedState,\ std::function<Player(std::vector<Tile>\&)>\ t\_winFunction,\ Player\ winnerEval);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ increaseValue(\textcolor{keywordtype}{int}\ val,\ \textcolor{keywordtype}{int}\ lineAmt);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{bool}\ detectTwoInARowThreat(std::vector<Tile>\&\ tiles,\ Player\ targetPlayer,\ \textcolor{keywordtype}{int}\ blockPosition);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<bool>\ m\_availableItems;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ AmtPlaceable\ =\ 5;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ Player\ m\_player;}
+\DoxyCodeLine{00108\ \ \ \ \ Player\ m\_enemy;}
+\DoxyCodeLine{00109\ \};}
+
+\end{DoxyCode}

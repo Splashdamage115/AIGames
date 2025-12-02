@@ -31,55 +31,60 @@ struct Tile
 class TileManager
 {
 public:
-	void moveGameState();
+void moveGameState();
 
-	void Start();
-	void Update();
+void Start();
+void Update();
 
-	Player checkWinState(std::vector<Tile>& t_tiles);
-	void gameOver(Player winner);
+Player checkWinState(std::vector<Tile>& t_tiles);
+void gameOver(Player winner);
 
-	bool gameOverCheck = false;
+bool gameOverCheck = false;
 
-	static sf::Texture FrogTexture;
-	static sf::Texture SnakeTexture;
-	static sf::Texture DonkeyTexture;
+static sf::Texture FrogTexture;
+static sf::Texture SnakeTexture;
+static sf::Texture DonkeyTexture;
 private:
-	void PlaceTiles(int t_pos);
-	void moveItems(int t_pos);
-	void findTraversable(std::vector<int>& t_tile, std::vector<bool>& t_traversable, int t_pos);
+void PlaceTiles(int t_pos);
+void moveItems(int t_pos);
+void findTraversable(std::vector<int>& t_tile, std::vector<bool>& t_traversable, int t_pos);
+void executeDelayedAIPlacement();
+void executeDelayedAIMovement();
+void executeDelayedPlayerAIPlacement();
+void executeDelayedPlayerAIMovement();
 
-	std::shared_ptr<AiDecisionAbstract> m_decision;
+std::shared_ptr<AiDecisionAbstract> m_decision;
+std::shared_ptr<AiDecisionAbstract> m_playerDecision;
 
-	std::vector<Tile> m_tiles;
-	std::vector<int>m_selectable;
+std::vector<Tile> m_tiles;
+std::vector<int>m_selectable;
 
-	sf::Vector2f m_startPositionOffset = { 700.0f,50.0f };
+sf::Vector2f m_startPositionOffset = { 700.0f,50.0f };
 
-	bool m_moveGameState = false;
+bool m_moveGameState = false;
+bool m_pendingAIPlacement = false;
+bool m_pendingAIMovement = false;
+bool m_pendingPlayerAIPlacement = false;
+bool m_pendingPlayerAIMovement = false;
 
-	int selectedTile = 0;
+int selectedTile = 0;
 
-	Player winner = Player::none;
+Player winner = Player::none;
 };
 
 static sf::Texture& getTexture(TileItem textureType)
 {
-	switch (textureType)
-	{
-	case TileItem::none:
-		break;
-	case TileItem::Frog:
-		return TileManager::FrogTexture;
-		break;
-	case TileItem::Snake:
-		return TileManager::SnakeTexture;
-		break;
-	case TileItem::Donkey:
-		return TileManager::DonkeyTexture;
-		break;
-	default:
-		break;
-	}
-	//return sf::Texture();
+switch (textureType)
+{
+case TileItem::none:
+return TileManager::FrogTexture; // Default fallback
+case TileItem::Frog:
+return TileManager::FrogTexture;
+case TileItem::Snake:
+return TileManager::SnakeTexture;
+case TileItem::Donkey:
+return TileManager::DonkeyTexture;
+default:
+return TileManager::FrogTexture; // Default fallback
+}
 }
