@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Tile Struct Reference</title>
+<title>FourthProtocol: Tile Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">FourthProtocol
    </div>
   </td>
  </tr>
@@ -94,10 +94,10 @@ $(function(){initNavTree('struct_tile.html','','struct_tile-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae720228e25ab0903cfb4736b21f8e861" id="r_ae720228e25ab0903cfb4736b21f8e861"><td class="memItemLeft" align="right" valign="top"><a id="ae720228e25ab0903cfb4736b21f8e861" name="ae720228e25ab0903cfb4736b21f8e861"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initBody</b> (Player owner)</td></tr>
-<tr class="memitem:af01b236a7a5fdffc1768917223bba5f6" id="r_af01b236a7a5fdffc1768917223bba5f6"><td class="memItemLeft" align="right" valign="top"><a id="af01b236a7a5fdffc1768917223bba5f6" name="af01b236a7a5fdffc1768917223bba5f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearBody</b> ()</td></tr>
+<tr class="memitem:ae720228e25ab0903cfb4736b21f8e861" id="r_ae720228e25ab0903cfb4736b21f8e861"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae720228e25ab0903cfb4736b21f8e861">initBody</a> (Player owner)</td></tr>
+<tr class="memdesc:ae720228e25ab0903cfb4736b21f8e861"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise the box with the correct character  <br /></td></tr>
+<tr class="memitem:af01b236a7a5fdffc1768917223bba5f6" id="r_af01b236a7a5fdffc1768917223bba5f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af01b236a7a5fdffc1768917223bba5f6">clearBody</a> ()</td></tr>
+<tr class="memdesc:af01b236a7a5fdffc1768917223bba5f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove all data  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -118,6 +118,47 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enemyOccupied</b> = f
 <tr class="memitem:afb552010a2be38caea1e57fb40d44309" id="r_afb552010a2be38caea1e57fb40d44309"><td class="memItemLeft" align="right" valign="top"><a id="afb552010a2be38caea1e57fb40d44309" name="afb552010a2be38caea1e57fb40d44309"></a>
 sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
 </table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af01b236a7a5fdffc1768917223bba5f6" name="af01b236a7a5fdffc1768917223bba5f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01b236a7a5fdffc1768917223bba5f6">&#9670;&#160;</a></span>clearBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tile::clearBody </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>remove all data </p>
+<p>remove all data from the object </p>
+
+</div>
+</div>
+<a id="ae720228e25ab0903cfb4736b21f8e861" name="ae720228e25ab0903cfb4736b21f8e861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae720228e25ab0903cfb4736b21f8e861">&#9670;&#160;</a></span>initBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tile::initBody </td>
+          <td>(</td>
+          <td class="paramtype">Player</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initialise the box with the correct character </p>
+<p>set all the necessary data for the body and use it </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li><a class="el" href="_tile_8h_source.html">Tile.h</a></li>
 <li><b>Tile.cpp</b></li>

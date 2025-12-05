@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: RenderObject Class Reference</title>
+<title>FourthProtocol: RenderObject Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">FourthProtocol
    </div>
   </td>
  </tr>
@@ -102,18 +102,84 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a cla
 sf::RenderWindow &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getWindow</b> ()</td></tr>
 <tr class="memitem:ab1eb3068392a630419b20c1cd533ea5e" id="r_ab1eb3068392a630419b20c1cd533ea5e"><td class="memItemLeft" align="right" valign="top"><a id="ab1eb3068392a630419b20c1cd533ea5e" name="ab1eb3068392a630419b20c1cd533ea5e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>closeWindow</b> ()</td></tr>
-<tr class="memitem:a9581b1113b3a5de7db49f43aa5c00a11" id="r_a9581b1113b3a5de7db49f43aa5c00a11"><td class="memItemLeft" align="right" valign="top"><a id="a9581b1113b3a5de7db49f43aa5c00a11" name="a9581b1113b3a5de7db49f43aa5c00a11"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
-<tr class="memitem:a7d0dce77694dae027955a45fdcf819da" id="r_a7d0dce77694dae027955a45fdcf819da"><td class="memItemLeft" align="right" valign="top"><a id="a7d0dce77694dae027955a45fdcf819da" name="a7d0dce77694dae027955a45fdcf819da"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addNewRenderObject</b> (std::shared_ptr&lt; sf::Drawable &gt; t_renderObj, int t_layerNum)</td></tr>
-<tr class="memitem:a763a4adb8690afe55632055d7eb38cbd" id="r_a763a4adb8690afe55632055d7eb38cbd"><td class="memItemLeft" align="right" valign="top"><a id="a763a4adb8690afe55632055d7eb38cbd" name="a763a4adb8690afe55632055d7eb38cbd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> ()</td></tr>
+<tr class="memdesc:ab1eb3068392a630419b20c1cd533ea5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">close the window object and clean up <br /></td></tr>
+<tr class="memitem:a9581b1113b3a5de7db49f43aa5c00a11" id="r_a9581b1113b3a5de7db49f43aa5c00a11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9581b1113b3a5de7db49f43aa5c00a11">start</a> ()</td></tr>
+<tr class="memdesc:a9581b1113b3a5de7db49f43aa5c00a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">start all standard window stuff  <br /></td></tr>
+<tr class="memitem:a7d0dce77694dae027955a45fdcf819da" id="r_a7d0dce77694dae027955a45fdcf819da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d0dce77694dae027955a45fdcf819da">addNewRenderObject</a> (std::shared_ptr&lt; sf::Drawable &gt; t_renderObj, int t_layerNum)</td></tr>
+<tr class="memdesc:a7d0dce77694dae027955a45fdcf819da"><td class="mdescLeft">&#160;</td><td class="mdescRight">append new object to render  <br /></td></tr>
+<tr class="memitem:a763a4adb8690afe55632055d7eb38cbd" id="r_a763a4adb8690afe55632055d7eb38cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a763a4adb8690afe55632055d7eb38cbd">render</a> ()</td></tr>
+<tr class="memdesc:a763a4adb8690afe55632055d7eb38cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">render all layers  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0ac149893a1c0f50a7c16b7ab0bfa42" id="r_aa0ac149893a1c0f50a7c16b7ab0bfa42"><td class="memItemLeft" align="right" valign="top"><a id="aa0ac149893a1c0f50a7c16b7ab0bfa42" name="aa0ac149893a1c0f50a7c16b7ab0bfa42"></a>
 static <a class="el" href="class_render_object.html">RenderObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
 </table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a7d0dce77694dae027955a45fdcf819da" name="a7d0dce77694dae027955a45fdcf819da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0dce77694dae027955a45fdcf819da">&#9670;&#160;</a></span>addNewRenderObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderObject::addNewRenderObject </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; sf::Drawable &gt;</td>          <td class="paramname"><span class="paramname"><em>t_renderObj</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>t_layerNum</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>append new object to render </p>
+<p>add new object into the designated layer and render that object </p>
+
+</div>
+</div>
+<a id="a763a4adb8690afe55632055d7eb38cbd" name="a763a4adb8690afe55632055d7eb38cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a763a4adb8690afe55632055d7eb38cbd">&#9670;&#160;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderObject::render </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>render all layers </p>
+<p>loop through all layers and render them all </p>
+
+</div>
+</div>
+<a id="a9581b1113b3a5de7db49f43aa5c00a11" name="a9581b1113b3a5de7db49f43aa5c00a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9581b1113b3a5de7db49f43aa5c00a11">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderObject::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>start all standard window stuff </p>
+<p>clear all layers to begin with </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_render_object_8h_source.html">RenderObject.h</a></li>
 <li><b>RenderObject.cpp</b></li>

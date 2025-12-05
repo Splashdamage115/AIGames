@@ -2,7 +2,7 @@
 \hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
 
 
-author Pete Lowe May 2025 you need to change the above line or lose marks Also don\textquotesingle{}t have any member properties called Delete...  
+include guards used so we don\textquotesingle{}t process this file twice same as \#pragma once Don\textquotesingle{}t forget the \#endif at the bottom  
 
 
 
@@ -12,41 +12,34 @@ author Pete Lowe May 2025 you need to change the above line or lose marks Also d
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_game_a7f57a7a8408e554d0a72882c287e1d04}\label{class_game_a7f57a7a8408e554d0a72882c287e1d04} 
-enum class {\bfseries Game\+State} \{ {\bfseries place}
+enum class \mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{Game\+State}} \{ {\bfseries place}
 , {\bfseries move}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em track the current game state \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_game_a20d30146064ee53ccd099ba920f23b20}\label{class_game_a20d30146064ee53ccd099ba920f23b20} 
-void {\bfseries restart\+Game} ()
-\item 
+void \mbox{\hyperlink{class_game_a20d30146064ee53ccd099ba920f23b20}{restart\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Reinitialise all items in the game. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_a586a831ed5ff1283fcf1b96f4eff065c}\label{class_game_a586a831ed5ff1283fcf1b96f4eff065c} 
 {\bfseries Game} (\mbox{\hyperlink{class_game}{Game}} const \&)=delete
 \item 
 \Hypertarget{class_game_aa4c0eacd8656e54ec4e94877c453e531}\label{class_game_aa4c0eacd8656e54ec4e94877c453e531} 
 void {\bfseries operator=} (\mbox{\hyperlink{class_game}{Game}} const \&)=delete
 \item 
-\Hypertarget{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}\label{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa} 
-void {\bfseries run} ()
-\item 
-\Hypertarget{class_game_a2d188c587e88058b51953c745b7822ad}\label{class_game_a2d188c587e88058b51953c745b7822ad} 
-void {\bfseries Placed\+Tile} ()
-\item 
-\Hypertarget{class_game_a295babd00513e096e445955ce4829bdc}\label{class_game_a295babd00513e096e445955ce4829bdc} 
-void {\bfseries change\+Game\+State} (Game\+State t\+\_\+game\+State)
-\item 
-\Hypertarget{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}\label{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2} 
-void {\bfseries Game\+Over} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}} ()
+\begin{DoxyCompactList}\small\item\em standard game loop \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a2d188c587e88058b51953c745b7822ad}{Placed\+Tile}} ()
+\begin{DoxyCompactList}\small\item\em call after an item is placed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a295babd00513e096e445955ce4829bdc}{change\+Game\+State}} (\mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{Game\+State}} t\+\_\+game\+State)
+\begin{DoxyCompactList}\small\item\em go to place state for the game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}{Game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em check if the game has ended \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_game_a2933df060e48bfcdd214f8eafb09b023}\label{class_game_a2933df060e48bfcdd214f8eafb09b023} 
-static \mbox{\hyperlink{class_game}{Game}} \& {\bfseries get\+Instance} ()
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{class_game}{Game}} \& \mbox{\hyperlink{class_game_a2933df060e48bfcdd214f8eafb09b023}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em singleton pattern \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -67,9 +60,6 @@ static float {\bfseries delta\+Time} = 0.f
 \item 
 \Hypertarget{class_game_a853939dbd7545ae9dd5efc844482d3b0}\label{class_game_a853939dbd7545ae9dd5efc844482d3b0} 
 static sf\+::\+Font {\bfseries m\+\_\+jersey\+Font}
-\item 
-\Hypertarget{class_game_a2074c94aaa9398c6099cf554a8ca1345}\label{class_game_a2074c94aaa9398c6099cf554a8ca1345} 
-static sf\+::\+Texture {\bfseries m\+\_\+ship}
 \item 
 \Hypertarget{class_game_a68828ecf9cf012b63cc7c771a1e31458}\label{class_game_a68828ecf9cf012b63cc7c771a1e31458} 
 static sf\+::\+Vector2i {\bfseries mouse\+Position} = \{ 0,0 \}
@@ -95,9 +85,87 @@ static bool {\bfseries ai\+Waiting\+To\+Move} = false
 
 
 \doxysubsection{Detailed Description}
-author Pete Lowe May 2025 you need to change the above line or lose marks Also don\textquotesingle{}t have any member properties called Delete... 
-
 include guards used so we don\textquotesingle{}t process this file twice same as \#pragma once Don\textquotesingle{}t forget the \#endif at the bottom 
+
+\label{doc-enum-members}
+\Hypertarget{class_game_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_game_a7f57a7a8408e554d0a72882c287e1d04}\index{Game@{Game}!GameState@{GameState}}
+\index{GameState@{GameState}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily \label{class_game_a7f57a7a8408e554d0a72882c287e1d04} 
+enum class \mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{Game\+::\+Game\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+track the current game state 
+
+change the state of the game from place, to move 
+
+\label{doc-func-members}
+\Hypertarget{class_game_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a295babd00513e096e445955ce4829bdc}\index{Game@{Game}!changeGameState@{changeGameState}}
+\index{changeGameState@{changeGameState}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{changeGameState()}{changeGameState()}}
+{\footnotesize\ttfamily \label{class_game_a295babd00513e096e445955ce4829bdc} 
+void Game\+::change\+Game\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{Game\+State}}}]{t\+\_\+game\+State}{}\end{DoxyParamCaption})}
+
+
+
+go to place state for the game 
+
+change game state after all items are placed \Hypertarget{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}\index{Game@{Game}!GameOver@{GameOver}}
+\index{GameOver@{GameOver}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GameOver()}{GameOver()}}
+{\footnotesize\ttfamily \label{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2} 
+void Game\+::\+Game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+check if the game has ended 
+
+change the text, and ready to restart \Hypertarget{class_game_a2933df060e48bfcdd214f8eafb09b023}\index{Game@{Game}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_game_a2933df060e48bfcdd214f8eafb09b023} 
+\mbox{\hyperlink{class_game}{Game}} \& Game\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+singleton pattern 
+
+using singleton for the game class as many items need access to some of the functions \Hypertarget{class_game_a2d188c587e88058b51953c745b7822ad}\index{Game@{Game}!PlacedTile@{PlacedTile}}
+\index{PlacedTile@{PlacedTile}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{PlacedTile()}{PlacedTile()}}
+{\footnotesize\ttfamily \label{class_game_a2d188c587e88058b51953c745b7822ad} 
+void Game\+::\+Placed\+Tile (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+call after an item is placed 
+
+reset the placing item \Hypertarget{class_game_a20d30146064ee53ccd099ba920f23b20}\index{Game@{Game}!restartGame@{restartGame}}
+\index{restartGame@{restartGame}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{restartGame()}{restartGame()}}
+{\footnotesize\ttfamily \label{class_game_a20d30146064ee53ccd099ba920f23b20} 
+void Game\+::restart\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reinitialise all items in the game. 
+
+go through all classes and reinitialise them \Hypertarget{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}\index{Game@{Game}!run@{run}}
+\index{run@{run}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa} 
+void Game\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+standard game loop 
+
+update and render cycle 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

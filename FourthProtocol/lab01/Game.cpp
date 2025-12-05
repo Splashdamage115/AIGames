@@ -7,7 +7,6 @@
 
 float Game::deltaTime = 0.f;
 sf::Font Game::m_jerseyFont;
-sf::Texture Game::m_ship;
 sf::Vector2i Game::mousePosition = { 0,0 };
 bool Game::playerOneTurn = false;
 TileItem Game::selectedItem = TileItem::none;
@@ -33,7 +32,6 @@ Game::Game()
 	restartGame();
 
 	if (!m_jerseyFont.openFromFile("ASSETS\\FONTS\\Jersey20-Regular.ttf")) std::cout << "problem loading arial black font" << std::endl;
-	if (!m_ship.loadFromFile(".\\ASSETS\\IMAGES\\ship.png")) std::cout << "couldnt find ship\n";
 
 
 	m_instructions = std::make_shared<sf::Text>(m_jerseyFont);

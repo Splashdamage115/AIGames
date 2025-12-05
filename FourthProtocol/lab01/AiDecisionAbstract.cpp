@@ -2,6 +2,8 @@
 #include "Tile.h"
 #include <algorithm> 
 
+int AiDecisionAbstract::SEARCH_DEPTH = 2;
+
 void AiDecisionAbstract::init(Player t_player)
 {
 	for (int i = 0; i < 5; i++)
@@ -325,8 +327,6 @@ MovementType AiDecisionAbstract::DecideMovement(std::vector<Tile>& tiles,
 	bestMove.value = -999999;
 	bestMove.currentPos = -1;
 	bestMove.destination = -1;
-
-	const int SEARCH_DEPTH = 4;
 
 	for (int i = 0; i < tiles.size(); i++)
 	{

@@ -3,12 +3,10 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_tile_ae720228e25ab0903cfb4736b21f8e861}\label{struct_tile_ae720228e25ab0903cfb4736b21f8e861} 
-void {\bfseries init\+Body} (Player owner)
-\item 
-\Hypertarget{struct_tile_af01b236a7a5fdffc1768917223bba5f6}\label{struct_tile_af01b236a7a5fdffc1768917223bba5f6} 
-void {\bfseries clear\+Body} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{struct_tile_ae720228e25ab0903cfb4736b21f8e861}{init\+Body}} (Player owner)
+\begin{DoxyCompactList}\small\item\em initialise the box with the correct character \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_tile_af01b236a7a5fdffc1768917223bba5f6}{clear\+Body}} ()
+\begin{DoxyCompactList}\small\item\em remove all data \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,6 +35,31 @@ bool {\bfseries enemy\+Occupied} = false
 sf\+::\+Vector2i {\bfseries position}
 \end{DoxyCompactItemize}
 
+
+\label{doc-func-members}
+\Hypertarget{struct_tile_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_tile_af01b236a7a5fdffc1768917223bba5f6}\index{Tile@{Tile}!clearBody@{clearBody}}
+\index{clearBody@{clearBody}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{clearBody()}{clearBody()}}
+{\footnotesize\ttfamily \label{struct_tile_af01b236a7a5fdffc1768917223bba5f6} 
+void Tile\+::clear\+Body (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+remove all data 
+
+remove all data from the object \Hypertarget{struct_tile_ae720228e25ab0903cfb4736b21f8e861}\index{Tile@{Tile}!initBody@{initBody}}
+\index{initBody@{initBody}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{initBody()}{initBody()}}
+{\footnotesize\ttfamily \label{struct_tile_ae720228e25ab0903cfb4736b21f8e861} 
+void Tile\+::init\+Body (\begin{DoxyParamCaption}\item[{Player}]{owner}{}\end{DoxyParamCaption})}
+
+
+
+initialise the box with the correct character 
+
+set all the necessary data for the body and use it 
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

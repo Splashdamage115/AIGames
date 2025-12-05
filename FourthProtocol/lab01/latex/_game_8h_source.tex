@@ -1,87 +1,91 @@
 \doxysection{Game.\+h}
 \hypertarget{_game_8h_source}{}\label{_game_8h_source}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ GAME\_HPP}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ GAME\_HPP}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ warning(\ push\ )}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ warning(\ disable\ :\ 4275\ )}}
-\DoxyCodeLine{00010\ \textcolor{comment}{//\ ignore\ this\ warning}}
-\DoxyCodeLine{00011\ \textcolor{comment}{//\ C:\(\backslash\)SFML\ -\/\ 3.0.0\(\backslash\)include\(\backslash\)SFML\(\backslash\)System\(\backslash\)Exception.hpp(41,\ 47)\ :\ }}
-\DoxyCodeLine{00012\ \textcolor{comment}{//\ warning\ C4275\ :\ non\ dll\ -\/\ interface\ class\ 'std::runtime\_error'\ used\ as\ base\ for\ dll\ -\/\ interface\ class\ 'sf::Exception'}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}Library.h"{}}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}Tile.h"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}CharacterSelection.h"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}SetAIPlayButton.h"{}}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }Game}
-\DoxyCodeLine{00026\ \{}
-\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ restartGame();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{enum\ class}\ GameState}
-\DoxyCodeLine{00031\ \ \ \ \ \{}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ place,\ move}
-\DoxyCodeLine{00033\ \ \ \ \ \};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ Game\&\ getInstance()}
-\DoxyCodeLine{00036\ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Game\ instance;}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
-\DoxyCodeLine{00039\ \ \ \ \ \}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ DELETE\ FUNCTIONS\ TO\ AVOID\ MORE\ INSTANCES}}
-\DoxyCodeLine{00042\ \ \ \ \ Game(Game\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(Game\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ run();}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ PlacedTile();}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ changeGameState(GameState\ t\_gameState);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ deltaTime;}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{static}\ sf::Font\ m\_jerseyFont;}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ sf::Texture\ m\_ship;}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ sf::Vector2i\ mousePosition;}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ playerOneTurn;}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ TileItem\ selectedItem;}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ aiEnabled;}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ GameOver();}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ Player\ winner;}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{int}\ playerWins\ =\ 0;}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{int}\ enemyWins\ =\ 0;}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{comment}{//\ AI\ timing\ control}}
-\DoxyCodeLine{00067\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ aiMoveDelay;}
-\DoxyCodeLine{00068\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ aiMoveTimer;}
-\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ aiWaitingToMove;}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00072\ Game();}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ processEvents();}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ processKeys(\textcolor{keyword}{const}\ std::optional<sf::Event>\ t\_event);}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ checkKeyboardState();}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ t\_deltaTime);}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ std::shared\_ptr<sf::Text>\ m\_instructions;}
-\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_tile_manager}{TileManager}}\ m\_tileManager;}
-\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_character_selection}{CharacterSelection}}\ m\_charSelect;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ GameState\ currentGamestate;}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ gameOverState\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_set_a_i_play_button}{SetAIPlayButton}}\ aiPlayButton;}
-\DoxyCodeLine{00088\ \};}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#pragma\ warning(\ pop\ )\ }}
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !GAME\_HPP}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ warning(\ push\ )}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ warning(\ disable\ :\ 4275\ )}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ ignore\ this\ warning}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ C:\(\backslash\)SFML\ -\/\ 3.0.0\(\backslash\)include\(\backslash\)SFML\(\backslash\)System\(\backslash\)Exception.hpp(41,\ 47)\ :\ }}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ warning\ C4275\ :\ non\ dll\ -\/\ interface\ class\ 'std::runtime\_error'\ used\ as\ base\ for\ dll\ -\/\ interface\ class\ 'sf::Exception'}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Library.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Tile.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}CharacterSelection.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}SetAIPlayButton.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }Game}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a20d30146064ee53ccd099ba920f23b20}{restartGame}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{GameState}}}
+\DoxyCodeLine{00034\ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ place,\ move}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ Game\&\ \mbox{\hyperlink{class_game_a2933df060e48bfcdd214f8eafb09b023}{getInstance}}()}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Game\ instance;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ DELETE\ FUNCTIONS\ TO\ AVOID\ MORE\ INSTANCES\ FOR\ SINGLETON}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}(\mbox{\hyperlink{class_game}{Game}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\mbox{\hyperlink{class_game}{Game}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a2d188c587e88058b51953c745b7822ad}{PlacedTile}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a295babd00513e096e445955ce4829bdc}{changeGameState}}(\mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{GameState}}\ t\_gameState);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ deltaTime;\ \textcolor{comment}{//\ time\ per\ second}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ sf::Font\ m\_jerseyFont;\ \textcolor{comment}{//\ standard\ used\ font}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//static\ sf::Texture\ m\_ship;\ }}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ sf::Vector2i\ mousePosition;\ \textcolor{comment}{//\ track\ the\ position\ of\ the\ mouse}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ playerOneTurn;\ \textcolor{comment}{//\ whos\ turn\ is\ it}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{static}\ TileItem\ selectedItem;\ \textcolor{comment}{//\ the\ current\ item\ selected\ by\ the\ player}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ aiEnabled;\ \textcolor{comment}{//\ wether\ the\ ai\ is\ enabled\ or\ not}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}{GameOver}}();\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ Player\ winner;\ \textcolor{comment}{//\ which\ player\ has\ won}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ playerWins\ =\ 0;\ \textcolor{comment}{//\ amount\ of\ wins\ from\ the\ player}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ enemyWins\ =\ 0;\ \textcolor{comment}{//\ amount\ of\ wins\ from\ the\ enemy}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ AI\ timing\ control}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ aiMoveDelay;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ aiMoveTimer;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ aiWaitingToMove;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ processEvents();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ processKeys(\textcolor{keyword}{const}\ std::optional<sf::Event>\ t\_event);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ checkKeyboardState();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ t\_deltaTime);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ std::shared\_ptr<sf::Text>\ m\_instructions;}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{class_tile_manager}{TileManager}}\ m\_tileManager;}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{class_character_selection}{CharacterSelection}}\ m\_charSelect;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_game_a7f57a7a8408e554d0a72882c287e1d04}{GameState}}\ currentGamestate;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ gameOverState\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{class_set_a_i_play_button}{SetAIPlayButton}}\ aiPlayButton;}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#pragma\ warning(\ pop\ )\ }}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !GAME\_HPP}}
 
 \end{DoxyCode}

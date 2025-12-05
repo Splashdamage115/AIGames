@@ -14,16 +14,13 @@ sf\+::\+Render\+Window \& {\bfseries get\+Window} ()
 \item 
 \Hypertarget{class_render_object_ab1eb3068392a630419b20c1cd533ea5e}\label{class_render_object_ab1eb3068392a630419b20c1cd533ea5e} 
 void {\bfseries close\+Window} ()
-\item 
-\Hypertarget{class_render_object_a9581b1113b3a5de7db49f43aa5c00a11}\label{class_render_object_a9581b1113b3a5de7db49f43aa5c00a11} 
-void {\bfseries start} ()
-\item 
-\Hypertarget{class_render_object_a7d0dce77694dae027955a45fdcf819da}\label{class_render_object_a7d0dce77694dae027955a45fdcf819da} 
-bool {\bfseries add\+New\+Render\+Object} (std\+::shared\+\_\+ptr$<$ sf\+::\+Drawable $>$ t\+\_\+render\+Obj, int t\+\_\+layer\+Num)
-\item 
-\Hypertarget{class_render_object_a763a4adb8690afe55632055d7eb38cbd}\label{class_render_object_a763a4adb8690afe55632055d7eb38cbd} 
-void {\bfseries render} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em close the window object and clean up \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_render_object_a9581b1113b3a5de7db49f43aa5c00a11}{start}} ()
+\begin{DoxyCompactList}\small\item\em start all standard window stuff \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_render_object_a7d0dce77694dae027955a45fdcf819da}{add\+New\+Render\+Object}} (std\+::shared\+\_\+ptr$<$ sf\+::\+Drawable $>$ t\+\_\+render\+Obj, int t\+\_\+layer\+Num)
+\begin{DoxyCompactList}\small\item\em append new object to render \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_render_object_a763a4adb8690afe55632055d7eb38cbd}{render}} ()
+\begin{DoxyCompactList}\small\item\em render all layers \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,6 +28,41 @@ void {\bfseries render} ()
 static \mbox{\hyperlink{class_render_object}{Render\+Object}} \& {\bfseries get\+Instance} ()
 \end{DoxyCompactItemize}
 
+
+\label{doc-func-members}
+\Hypertarget{class_render_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_object_a7d0dce77694dae027955a45fdcf819da}\index{RenderObject@{RenderObject}!addNewRenderObject@{addNewRenderObject}}
+\index{addNewRenderObject@{addNewRenderObject}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{addNewRenderObject()}{addNewRenderObject()}}
+{\footnotesize\ttfamily \label{class_render_object_a7d0dce77694dae027955a45fdcf819da} 
+bool Render\+Object\+::add\+New\+Render\+Object (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ sf\+::\+Drawable $>$}]{t\+\_\+render\+Obj}{, }\item[{int}]{t\+\_\+layer\+Num}{}\end{DoxyParamCaption})}
+
+
+
+append new object to render 
+
+add new object into the designated layer and render that object \Hypertarget{class_render_object_a763a4adb8690afe55632055d7eb38cbd}\index{RenderObject@{RenderObject}!render@{render}}
+\index{render@{render}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_render_object_a763a4adb8690afe55632055d7eb38cbd} 
+void Render\+Object\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+render all layers 
+
+loop through all layers and render them all \Hypertarget{class_render_object_a9581b1113b3a5de7db49f43aa5c00a11}\index{RenderObject@{RenderObject}!start@{start}}
+\index{start@{start}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{class_render_object_a9581b1113b3a5de7db49f43aa5c00a11} 
+void Render\+Object\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+start all standard window stuff 
+
+clear all layers to begin with 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

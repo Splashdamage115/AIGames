@@ -77,6 +77,7 @@ public:
 		std::function<Player(std::vector<Tile>&)> t_winFunction,
 		std::function<void(std::vector<int>&, std::vector<bool>&, int)> t_movementFunction);
 
+	static int SEARCH_DEPTH;
 private:
 	/*! \brief Calculate the value of the current board state
 	*

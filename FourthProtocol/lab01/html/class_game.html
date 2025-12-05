@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Game Class Reference</title>
+<title>FourthProtocol: Game Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">FourthProtocol
    </div>
   </td>
  </tr>
@@ -92,38 +92,39 @@ $(function(){initNavTree('class_game.html','','class_game-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>author Pete Lowe May 2025 you need to change the above line or lose marks Also don't have any member properties called Delete...  
+<p>include guards used so we don't process this file twice same as #pragma once Don't forget the #endif at the bottom  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_game_8h_source.html">Game.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a7f57a7a8408e554d0a72882c287e1d04" id="r_a7f57a7a8408e554d0a72882c287e1d04"><td class="memItemLeft" align="right" valign="top"><a id="a7f57a7a8408e554d0a72882c287e1d04" name="a7f57a7a8408e554d0a72882c287e1d04"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>GameState</b> { <b>place</b>
+<tr class="memitem:a7f57a7a8408e554d0a72882c287e1d04" id="r_a7f57a7a8408e554d0a72882c287e1d04"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f57a7a8408e554d0a72882c287e1d04">GameState</a> { <b>place</b>
 , <b>move</b>
  }</td></tr>
+<tr class="memdesc:a7f57a7a8408e554d0a72882c287e1d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">track the current game state  <a href="#a7f57a7a8408e554d0a72882c287e1d04">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a20d30146064ee53ccd099ba920f23b20" id="r_a20d30146064ee53ccd099ba920f23b20"><td class="memItemLeft" align="right" valign="top"><a id="a20d30146064ee53ccd099ba920f23b20" name="a20d30146064ee53ccd099ba920f23b20"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>restartGame</b> ()</td></tr>
+<tr class="memitem:a20d30146064ee53ccd099ba920f23b20" id="r_a20d30146064ee53ccd099ba920f23b20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20d30146064ee53ccd099ba920f23b20">restartGame</a> ()</td></tr>
+<tr class="memdesc:a20d30146064ee53ccd099ba920f23b20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitialise all items in the game.  <br /></td></tr>
 <tr class="memitem:a586a831ed5ff1283fcf1b96f4eff065c" id="r_a586a831ed5ff1283fcf1b96f4eff065c"><td class="memItemLeft" align="right" valign="top"><a id="a586a831ed5ff1283fcf1b96f4eff065c" name="a586a831ed5ff1283fcf1b96f4eff065c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Game</b> (<a class="el" href="class_game.html">Game</a> const &amp;)=delete</td></tr>
 <tr class="memitem:aa4c0eacd8656e54ec4e94877c453e531" id="r_aa4c0eacd8656e54ec4e94877c453e531"><td class="memItemLeft" align="right" valign="top"><a id="aa4c0eacd8656e54ec4e94877c453e531" name="aa4c0eacd8656e54ec4e94877c453e531"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_game.html">Game</a> const &amp;)=delete</td></tr>
-<tr class="memitem:a1ab78f5ed0d5ea879157357cf2fb2afa" id="r_a1ab78f5ed0d5ea879157357cf2fb2afa"><td class="memItemLeft" align="right" valign="top"><a id="a1ab78f5ed0d5ea879157357cf2fb2afa" name="a1ab78f5ed0d5ea879157357cf2fb2afa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
-<tr class="memitem:a2d188c587e88058b51953c745b7822ad" id="r_a2d188c587e88058b51953c745b7822ad"><td class="memItemLeft" align="right" valign="top"><a id="a2d188c587e88058b51953c745b7822ad" name="a2d188c587e88058b51953c745b7822ad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PlacedTile</b> ()</td></tr>
-<tr class="memitem:a295babd00513e096e445955ce4829bdc" id="r_a295babd00513e096e445955ce4829bdc"><td class="memItemLeft" align="right" valign="top"><a id="a295babd00513e096e445955ce4829bdc" name="a295babd00513e096e445955ce4829bdc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeGameState</b> (GameState t_gameState)</td></tr>
-<tr class="memitem:aeef0f3e9e8d8f2efeb75c10e1dda4ef2" id="r_aeef0f3e9e8d8f2efeb75c10e1dda4ef2"><td class="memItemLeft" align="right" valign="top"><a id="aeef0f3e9e8d8f2efeb75c10e1dda4ef2" name="aeef0f3e9e8d8f2efeb75c10e1dda4ef2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GameOver</b> ()</td></tr>
+<tr class="memitem:a1ab78f5ed0d5ea879157357cf2fb2afa" id="r_a1ab78f5ed0d5ea879157357cf2fb2afa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ab78f5ed0d5ea879157357cf2fb2afa">run</a> ()</td></tr>
+<tr class="memdesc:a1ab78f5ed0d5ea879157357cf2fb2afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">standard game loop  <br /></td></tr>
+<tr class="memitem:a2d188c587e88058b51953c745b7822ad" id="r_a2d188c587e88058b51953c745b7822ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d188c587e88058b51953c745b7822ad">PlacedTile</a> ()</td></tr>
+<tr class="memdesc:a2d188c587e88058b51953c745b7822ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">call after an item is placed  <br /></td></tr>
+<tr class="memitem:a295babd00513e096e445955ce4829bdc" id="r_a295babd00513e096e445955ce4829bdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a295babd00513e096e445955ce4829bdc">changeGameState</a> (<a class="el" href="#a7f57a7a8408e554d0a72882c287e1d04">GameState</a> t_gameState)</td></tr>
+<tr class="memdesc:a295babd00513e096e445955ce4829bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">go to place state for the game  <br /></td></tr>
+<tr class="memitem:aeef0f3e9e8d8f2efeb75c10e1dda4ef2" id="r_aeef0f3e9e8d8f2efeb75c10e1dda4ef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeef0f3e9e8d8f2efeb75c10e1dda4ef2">GameOver</a> ()</td></tr>
+<tr class="memdesc:aeef0f3e9e8d8f2efeb75c10e1dda4ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the game has ended  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2933df060e48bfcdd214f8eafb09b023" id="r_a2933df060e48bfcdd214f8eafb09b023"><td class="memItemLeft" align="right" valign="top"><a id="a2933df060e48bfcdd214f8eafb09b023" name="a2933df060e48bfcdd214f8eafb09b023"></a>
-static <a class="el" href="class_game.html">Game</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="memitem:a2933df060e48bfcdd214f8eafb09b023" id="r_a2933df060e48bfcdd214f8eafb09b023"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game.html">Game</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2933df060e48bfcdd214f8eafb09b023">getInstance</a> ()</td></tr>
+<tr class="memdesc:a2933df060e48bfcdd214f8eafb09b023"><td class="mdescLeft">&#160;</td><td class="mdescRight">singleton pattern  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -140,8 +141,6 @@ Static Public Attributes</h2></td></tr>
 static float&#160;</td><td class="memItemRight" valign="bottom"><b>deltaTime</b> = 0.f</td></tr>
 <tr class="memitem:a853939dbd7545ae9dd5efc844482d3b0" id="r_a853939dbd7545ae9dd5efc844482d3b0"><td class="memItemLeft" align="right" valign="top"><a id="a853939dbd7545ae9dd5efc844482d3b0" name="a853939dbd7545ae9dd5efc844482d3b0"></a>
 static sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>m_jerseyFont</b></td></tr>
-<tr class="memitem:a2074c94aaa9398c6099cf554a8ca1345" id="r_a2074c94aaa9398c6099cf554a8ca1345"><td class="memItemLeft" align="right" valign="top"><a id="a2074c94aaa9398c6099cf554a8ca1345" name="a2074c94aaa9398c6099cf554a8ca1345"></a>
-static sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>m_ship</b></td></tr>
 <tr class="memitem:a68828ecf9cf012b63cc7c771a1e31458" id="r_a68828ecf9cf012b63cc7c771a1e31458"><td class="memItemLeft" align="right" valign="top"><a id="a68828ecf9cf012b63cc7c771a1e31458" name="a68828ecf9cf012b63cc7c771a1e31458"></a>
 static sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosition</b> = { 0,0 }</td></tr>
 <tr class="memitem:ae28b0e66538b9db0235c4786fd52af35" id="r_ae28b0e66538b9db0235c4786fd52af35"><td class="memItemLeft" align="right" valign="top"><a id="ae28b0e66538b9db0235c4786fd52af35" name="ae28b0e66538b9db0235c4786fd52af35"></a>
@@ -158,9 +157,163 @@ static float&#160;</td><td class="memItemRight" valign="bottom"><b>aiMoveTimer</
 static bool&#160;</td><td class="memItemRight" valign="bottom"><b>aiWaitingToMove</b> = false</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>author Pete Lowe May 2025 you need to change the above line or lose marks Also don't have any member properties called Delete... </p>
-<p>include guards used so we don't process this file twice same as #pragma once Don't forget the #endif at the bottom </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>include guards used so we don't process this file twice same as #pragma once Don't forget the #endif at the bottom </p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a7f57a7a8408e554d0a72882c287e1d04" name="a7f57a7a8408e554d0a72882c287e1d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f57a7a8408e554d0a72882c287e1d04">&#9670;&#160;</a></span>GameState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a7f57a7a8408e554d0a72882c287e1d04">Game::GameState</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>track the current game state </p>
+<p>change the state of the game from place, to move </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a295babd00513e096e445955ce4829bdc" name="a295babd00513e096e445955ce4829bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a295babd00513e096e445955ce4829bdc">&#9670;&#160;</a></span>changeGameState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::changeGameState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a7f57a7a8408e554d0a72882c287e1d04">GameState</a></td>          <td class="paramname"><span class="paramname"><em>t_gameState</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>go to place state for the game </p>
+<p>change game state after all items are placed </p>
+
+</div>
+</div>
+<a id="aeef0f3e9e8d8f2efeb75c10e1dda4ef2" name="aeef0f3e9e8d8f2efeb75c10e1dda4ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef0f3e9e8d8f2efeb75c10e1dda4ef2">&#9670;&#160;</a></span>GameOver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::GameOver </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>check if the game has ended </p>
+<p>change the text, and ready to restart </p>
+
+</div>
+</div>
+<a id="a2933df060e48bfcdd214f8eafb09b023" name="a2933df060e48bfcdd214f8eafb09b023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2933df060e48bfcdd214f8eafb09b023">&#9670;&#160;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game.html">Game</a> &amp; Game::getInstance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>singleton pattern </p>
+<p>using singleton for the game class as many items need access to some of the functions </p>
+
+</div>
+</div>
+<a id="a2d188c587e88058b51953c745b7822ad" name="a2d188c587e88058b51953c745b7822ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d188c587e88058b51953c745b7822ad">&#9670;&#160;</a></span>PlacedTile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::PlacedTile </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>call after an item is placed </p>
+<p>reset the placing item </p>
+
+</div>
+</div>
+<a id="a20d30146064ee53ccd099ba920f23b20" name="a20d30146064ee53ccd099ba920f23b20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20d30146064ee53ccd099ba920f23b20">&#9670;&#160;</a></span>restartGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::restartGame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reinitialise all items in the game. </p>
+<p>go through all classes and reinitialise them </p>
+
+</div>
+</div>
+<a id="a1ab78f5ed0d5ea879157357cf2fb2afa" name="a1ab78f5ed0d5ea879157357cf2fb2afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab78f5ed0d5ea879157357cf2fb2afa">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::run </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>standard game loop </p>
+<p>update and render cycle </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_game_8h_source.html">Game.h</a></li>
 <li><b>Game.cpp</b></li>
 </ul>

@@ -5,19 +5,15 @@
 \item 
 \Hypertarget{class_tile_manager_aef3caa5089679140da7ac704298377f5}\label{class_tile_manager_aef3caa5089679140da7ac704298377f5} 
 void {\bfseries move\+Game\+State} ()
-\item 
-\Hypertarget{class_tile_manager_a4cebc8421b7c8aefdffb76124f7e6b98}\label{class_tile_manager_a4cebc8421b7c8aefdffb76124f7e6b98} 
-void {\bfseries Start} ()
-\item 
-\Hypertarget{class_tile_manager_a81c007eaab506e2e6ab23af66438a70d}\label{class_tile_manager_a81c007eaab506e2e6ab23af66438a70d} 
-void {\bfseries Update} ()
-\item 
-\Hypertarget{class_tile_manager_a5bd6a5474c4cb1c35c7b3106d937ed4f}\label{class_tile_manager_a5bd6a5474c4cb1c35c7b3106d937ed4f} 
-Player {\bfseries check\+Win\+State} (std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&t\+\_\+tiles)
-\item 
-\Hypertarget{class_tile_manager_a73b7b6c4b87961f591aded7d0caccd81}\label{class_tile_manager_a73b7b6c4b87961f591aded7d0caccd81} 
-void {\bfseries game\+Over} (Player winner)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em set the move game state to true \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_manager_a4cebc8421b7c8aefdffb76124f7e6b98}{Start}} ()
+\begin{DoxyCompactList}\small\item\em initialise data for the class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_manager_a81c007eaab506e2e6ab23af66438a70d}{Update}} ()
+\begin{DoxyCompactList}\small\item\em update all objects \end{DoxyCompactList}\item 
+Player \mbox{\hyperlink{class_tile_manager_a5bd6a5474c4cb1c35c7b3106d937ed4f}{check\+Win\+State}} (std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&t\+\_\+tiles)
+\begin{DoxyCompactList}\small\item\em check if anyone has won, and return the winner \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_manager_a73b7b6c4b87961f591aded7d0caccd81}{game\+Over}} (Player winner)
+\begin{DoxyCompactList}\small\item\em set all data for the game to complete \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,6 +33,51 @@ static sf\+::\+Texture {\bfseries Snake\+Texture}
 static sf\+::\+Texture {\bfseries Donkey\+Texture}
 \end{DoxyCompactItemize}
 
+
+\label{doc-func-members}
+\Hypertarget{class_tile_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tile_manager_a5bd6a5474c4cb1c35c7b3106d937ed4f}\index{TileManager@{TileManager}!checkWinState@{checkWinState}}
+\index{checkWinState@{checkWinState}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{checkWinState()}{checkWinState()}}
+{\footnotesize\ttfamily \label{class_tile_manager_a5bd6a5474c4cb1c35c7b3106d937ed4f} 
+Player Tile\+Manager\+::check\+Win\+State (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_tile}{Tile}} $>$ \&}]{t\+\_\+tiles}{}\end{DoxyParamCaption})}
+
+
+
+check if anyone has won, and return the winner 
+
+loop through all potential 4 in rows and return the winner \Hypertarget{class_tile_manager_a73b7b6c4b87961f591aded7d0caccd81}\index{TileManager@{TileManager}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily \label{class_tile_manager_a73b7b6c4b87961f591aded7d0caccd81} 
+void Tile\+Manager\+::game\+Over (\begin{DoxyParamCaption}\item[{Player}]{winner}{}\end{DoxyParamCaption})}
+
+
+
+set all data for the game to complete 
+
+pass in the winner and set the data for it \Hypertarget{class_tile_manager_a4cebc8421b7c8aefdffb76124f7e6b98}\index{TileManager@{TileManager}!Start@{Start}}
+\index{Start@{Start}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_tile_manager_a4cebc8421b7c8aefdffb76124f7e6b98} 
+void Tile\+Manager\+::\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+initialise data for the class 
+
+load all assets, and set all data \Hypertarget{class_tile_manager_a81c007eaab506e2e6ab23af66438a70d}\index{TileManager@{TileManager}!Update@{Update}}
+\index{Update@{Update}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_tile_manager_a81c007eaab506e2e6ab23af66438a70d} 
+void Tile\+Manager\+::\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+update all objects 
+
+update timings, and check for mouse inputs on the board 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

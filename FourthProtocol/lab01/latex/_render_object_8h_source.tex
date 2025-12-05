@@ -20,16 +20,19 @@
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \ \ \ \ sf::RenderWindow\&\ getWindow()\ \{\ \textcolor{keywordflow}{return}\ m\_window;\ \}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ closeWindow();}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ start();}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ addNewRenderObject(std::shared\_ptr<sf::Drawable>\ t\_renderObj,\ \textcolor{keywordtype}{int}\ t\_layerNum);}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
-\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00025\ \ \ \ \ RenderObject();\ \textcolor{comment}{//\ Constructor}}
-\DoxyCodeLine{00026\ \ \ \ \ std::vector<std::vector<std::weak\_ptr<sf::Drawable>>>\ m\_layers;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ sf::RenderWindow\ m\_window;}
-\DoxyCodeLine{00029\ \};}
-\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_ab1eb3068392a630419b20c1cd533ea5e}{closeWindow}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_a9581b1113b3a5de7db49f43aa5c00a11}{start}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_render_object_a7d0dce77694dae027955a45fdcf819da}{addNewRenderObject}}(std::shared\_ptr<sf::Drawable>\ t\_renderObj,\ \textcolor{keywordtype}{int}\ t\_layerNum);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_a763a4adb8690afe55632055d7eb38cbd}{render}}();}
+\DoxyCodeLine{00043\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ RenderObject();\ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00045\ \ \ \ \ std::vector<std::vector<std::weak\_ptr<sf::Drawable>>>\ m\_layers;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ sf::RenderWindow\ m\_window;}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
 
 \end{DoxyCode}

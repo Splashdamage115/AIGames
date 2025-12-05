@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: RenderObject.h Source File</title>
+<title>FourthProtocol: RenderObject.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">FourthProtocol
    </div>
   </td>
  </tr>
@@ -110,19 +110,26 @@ $(function(){initNavTree('_render_object_8h_source.html','',''); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> operator=(RenderObject <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    sf::RenderWindow&amp; getWindow() { <span class="keywordflow">return</span> m_window; }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> closeWindow();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> start();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> addNewRenderObject(std::shared_ptr&lt;sf::Drawable&gt; t_renderObj, <span class="keywordtype">int</span> t_layerNum);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> render();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    RenderObject(); <span class="comment">// Constructor</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::vector&lt;std::vector&lt;std::weak_ptr&lt;sf::Drawable&gt;&gt;&gt; m_layers;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    sf::RenderWindow m_window;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_render_object.html#ab1eb3068392a630419b20c1cd533ea5e">closeWindow</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_render_object.html#a9581b1113b3a5de7db49f43aa5c00a11">start</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_render_object.html#a7d0dce77694dae027955a45fdcf819da">addNewRenderObject</a>(std::shared_ptr&lt;sf::Drawable&gt; t_renderObj, <span class="keywordtype">int</span> t_layerNum);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_render_object.html#a763a4adb8690afe55632055d7eb38cbd">render</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    RenderObject(); <span class="comment">// Constructor</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::vector&lt;std::vector&lt;std::weak_ptr&lt;sf::Drawable&gt;&gt;&gt; m_layers;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    sf::RenderWindow m_window;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="ttc" id="aclass_render_object_html_a763a4adb8690afe55632055d7eb38cbd"><div class="ttname"><a href="class_render_object.html#a763a4adb8690afe55632055d7eb38cbd">RenderObject::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">render all layers</div><div class="ttdef"><b>Definition</b> RenderObject.cpp:39</div></div>
+<div class="ttc" id="aclass_render_object_html_a7d0dce77694dae027955a45fdcf819da"><div class="ttname"><a href="class_render_object.html#a7d0dce77694dae027955a45fdcf819da">RenderObject::addNewRenderObject</a></div><div class="ttdeci">bool addNewRenderObject(std::shared_ptr&lt; sf::Drawable &gt; t_renderObj, int t_layerNum)</div><div class="ttdoc">append new object to render</div><div class="ttdef"><b>Definition</b> RenderObject.cpp:18</div></div>
+<div class="ttc" id="aclass_render_object_html_a9581b1113b3a5de7db49f43aa5c00a11"><div class="ttname"><a href="class_render_object.html#a9581b1113b3a5de7db49f43aa5c00a11">RenderObject::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">start all standard window stuff</div><div class="ttdef"><b>Definition</b> RenderObject.cpp:12</div></div>
+<div class="ttc" id="aclass_render_object_html_ab1eb3068392a630419b20c1cd533ea5e"><div class="ttname"><a href="class_render_object.html#ab1eb3068392a630419b20c1cd533ea5e">RenderObject::closeWindow</a></div><div class="ttdeci">void closeWindow()</div><div class="ttdoc">close the window object and clean up</div><div class="ttdef"><b>Definition</b> RenderObject.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
